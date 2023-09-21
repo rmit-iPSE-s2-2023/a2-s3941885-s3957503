@@ -73,11 +73,11 @@ struct ListView: View {
                     .fontWeight(.semibold)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading)
-                ForEach(allLists, id: \.self) { list in
-                    SwipeToDeleteView(taskList: list, onDelete: {
-                        self.deleteList(at: [allLists.firstIndex(of: list)!])
-                    })
-                }
+                ForEach(allLists.filter({ searchText.isEmpty ? true : $0.name?.localizedCaseInsensitiveContains(searchText) ?? false }), id: \.self) { list in
+                        SwipeToDeleteView(taskList: list, onDelete: {
+                            self.deleteList(at: [allLists.firstIndex(of: list)!])
+                        })
+                    }
                 Spacer()
             }
             

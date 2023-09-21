@@ -23,7 +23,7 @@ struct TaskView: View {
     @State private var selectedStatus: Status = .inProgress
     @Environment(\.managedObjectContext) private var viewContext
     @State private var refreshID = UUID()
-
+    @State private var searchText = ""
     var selectedTaskList: TaskList
     var fetchRequest: FetchRequest<Task>
     
@@ -78,6 +78,7 @@ struct TaskView: View {
                     .onDelete(perform: deleteTask)
                 }
                 .id(refreshID)
+                .searchable(text: $searchText)
                 
             }
             .padding()
