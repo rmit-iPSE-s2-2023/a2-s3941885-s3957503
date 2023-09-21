@@ -7,15 +7,13 @@
         <attribute name="status" optional="YES" attributeType="String"/>
         <attribute name="taskDescription" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
-        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TaskList" inverseName="tasks" inverseEntity="TaskList"/>
-        <relationship name="taskList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TaskList" inverseName="taskList" inverseEntity="TaskList"/>
+        <relationship name="taskList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TaskList" inverseName="tasks" inverseEntity="TaskList"/>
     </entity>
     <entity name="TaskList" representedClassName="TaskList" syncable="YES" codeGenerationType="class">
         <attribute name="colorString" optional="YES" attributeType="String"/>
         <attribute name="iconName" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="taskList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="taskList" inverseEntity="Task"/>
-        <relationship name="tasks" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="list" inverseEntity="Task"/>
+        <relationship name="tasks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Task" inverseName="taskList" inverseEntity="Task"/>
     </entity>
 </model>
