@@ -1,7 +1,7 @@
 //Possible further implementations
 //Maybe create a full combined tasks for inprogress and completed
 //Sort by day created, alphabetically and manual drag and drop sorting
-
+//dummy commit
 import SwiftUI
 import CoreData
 
