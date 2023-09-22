@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class UserRegistrationViewModel: ObservableObject {
+    @Published var email = ""
+    @Published var password = ""
+    @Published var confirmPassword = ""
+}
