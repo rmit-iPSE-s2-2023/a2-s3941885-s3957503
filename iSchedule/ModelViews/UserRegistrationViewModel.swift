@@ -52,8 +52,15 @@ class UserRegistrationViewModel: ObservableObject {
         if isPasswordValid() &&
             matchPassword() &&
             isEmailValid() {
+            
             return true
         }
         return false
     }
+    
+//    func saveCredentials(email: String, password: String){
+//
+//    }
+    
+    
 }
