@@ -11,4 +11,14 @@ class UserRegistrationViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
     @Published var confirmPassword = ""
+    
+    
+    func matchPassword() -> Bool {
+        if password == confirmPassword {
+            return true
+        }
+        return false
+    }
+    
+    
 }
