@@ -87,13 +87,6 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		C6227D922ABE407B00119848 /* signUpAndLoginViews */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = signUpAndLoginViews;
-			sourceTree = "<group>";
-		};
 		D599DEB72A95C327009D7CF6 = {
 			isa = PBXGroup;
 			children = (
@@ -118,7 +111,6 @@
 				2B0273902AB8690D007FB8B8 /* Managers */,
 				D599DEC32A95C327009D7CF6 /* iScheduleApp.swift */,
 				D599DEC72A95C329009D7CF6 /* Assets.xcassets */,
-				C6227D922ABE407B00119848 /* signUpAndLoginViews */,
 				2B0273842AB8432B007FB8B8 /* ModelViews */,
 				2B0273802AB84274007FB8B8 /* MainViews */,
 				D599DEC92A95C329009D7CF6 /* Preview Content */,
