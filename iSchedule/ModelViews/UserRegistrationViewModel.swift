@@ -22,7 +22,7 @@ class UserRegistrationViewModel: ObservableObject {
     
     func isPasswordValid() -> Bool {
         // https://regexlib.com/
-        // regexlib is used to evaluate password field 
+        // regexlib is used to evaluate password field
         let inputPassword = NSPredicate(format: "SELF MATCHES %@", "^([a-zA-Z0-9@*#]{8,15})$")
         
         // If password is valid password ( 8 - 15 chars) and also has number (1, 2, 3...) and symbols (#, %, $...) return true
@@ -48,5 +48,12 @@ class UserRegistrationViewModel: ObservableObject {
         return false
     }
     
-    
+    func isRegistrationComplete() -> Bool {
+        if isPasswordValid() &&
+            matchPassword() &&
+            isEmailValid() {
+            return true
+        }
+        return false
+    }
 }
