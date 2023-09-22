@@ -18,6 +18,7 @@
 		2B02738A2AB8432B007FB8B8 /* MyListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0273872AB8432B007FB8B8 /* MyListsView.swift */; };
 		2B02738D2AB8442C007FB8B8 /* iScheduleModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B02738B2AB8442C007FB8B8 /* iScheduleModel.xcdatamodeld */; };
 		2B02738F2AB84442007FB8B8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B02738E2AB84442007FB8B8 /* CoreDataManager.swift */; };
+		C6227D8F2ABE35C500119848 /* UserRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6227D8E2ABE35C500119848 /* UserRegistrationViewModel.swift */; };
 		D599DEC42A95C327009D7CF6 /* iScheduleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D599DEC32A95C327009D7CF6 /* iScheduleApp.swift */; };
 		D599DEC82A95C329009D7CF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D599DEC72A95C329009D7CF6 /* Assets.xcassets */; };
 		D599DECB2A95C329009D7CF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D599DECA2A95C329009D7CF6 /* Preview Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		2B02738C2AB8442C007FB8B8 /* iScheduleModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iScheduleModel.xcdatamodel; sourceTree = "<group>"; };
 		2B02738E2AB84442007FB8B8 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = "../../SimpleTodo-main/SimpleTodo/Managers/CoreDataManager.swift"; sourceTree = "<group>"; };
 		2B0273912AB8691F007FB8B8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		C6227D8E2ABE35C500119848 /* UserRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegistrationViewModel.swift; sourceTree = "<group>"; };
 		D599DEC02A95C327009D7CF6 /* iSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D599DEC32A95C327009D7CF6 /* iScheduleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iScheduleApp.swift; sourceTree = "<group>"; };
 		D599DEC72A95C329009D7CF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				2B0273852AB8432B007FB8B8 /* TaskNumView.swift */,
+				C6227D8E2ABE35C500119848 /* UserRegistrationViewModel.swift */,
 				2B0273862AB8432B007FB8B8 /* TaskRow.swift */,
 				2B0273872AB8432B007FB8B8 /* MyListsView.swift */,
 			);
@@ -204,6 +207,7 @@
 				2B02738D2AB8442C007FB8B8 /* iScheduleModel.xcdatamodeld in Sources */,
 				2B02737D2AB84254007FB8B8 /* AddTaskView.swift in Sources */,
 				D599DEC42A95C327009D7CF6 /* iScheduleApp.swift in Sources */,
+				C6227D8F2ABE35C500119848 /* UserRegistrationViewModel.swift in Sources */,
 				2B02737F2AB84254007FB8B8 /* TaskView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
