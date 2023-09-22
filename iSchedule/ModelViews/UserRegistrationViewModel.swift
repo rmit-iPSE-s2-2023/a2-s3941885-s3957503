@@ -20,5 +20,11 @@ class UserRegistrationViewModel: ObservableObject {
         return false
     }
     
+    func passwordIsValid() -> Bool {
+        let inputPassword = NSPredicate(format: "SELF MATCHES %@", "^([a-zA-Z0-9@*#]{8,15})$")
+        
+        return inputPassword.evaluate(with: password)
+    }
+    
     
 }
