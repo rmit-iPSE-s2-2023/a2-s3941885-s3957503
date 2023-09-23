@@ -20,6 +20,9 @@
 		2BBB63892ABEA0F7001D2EF8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0273912AB8691F007FB8B8 /* CoreDataManager.swift */; };
 		C644B5642ABEA71F0031CA67 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644B5622ABEA71F0031CA67 /* KeychainManager.swift */; };
 		C644B5652ABEA71F0031CA67 /* UserRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644B5632ABEA71F0031CA67 /* UserRegisterViewModel.swift */; };
+		C644B56A2ABEA79B0031CA67 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644B5672ABEA79B0031CA67 /* LoginView.swift */; };
+		C644B56B2ABEA79B0031CA67 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644B5682ABEA79B0031CA67 /* RegisterView.swift */; };
+		C644B56C2ABEA79B0031CA67 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644B5692ABEA79B0031CA67 /* HeaderView.swift */; };
 		D599DEC42A95C327009D7CF6 /* iScheduleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D599DEC32A95C327009D7CF6 /* iScheduleApp.swift */; };
 		D599DEC82A95C329009D7CF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D599DEC72A95C329009D7CF6 /* Assets.xcassets */; };
 		D599DECB2A95C329009D7CF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D599DECA2A95C329009D7CF6 /* Preview Assets.xcassets */; };
@@ -39,6 +42,9 @@
 		2B0273912AB8691F007FB8B8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = Managers/CoreDataManager.swift; sourceTree = "<group>"; };
 		C644B5622ABEA71F0031CA67 /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		C644B5632ABEA71F0031CA67 /* UserRegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRegisterViewModel.swift; sourceTree = "<group>"; };
+		C644B5672ABEA79B0031CA67 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C644B5682ABEA79B0031CA67 /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		C644B5692ABEA79B0031CA67 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		D599DEC02A95C327009D7CF6 /* iSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D599DEC32A95C327009D7CF6 /* iScheduleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iScheduleApp.swift; sourceTree = "<group>"; };
 		D599DEC72A95C329009D7CF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,6 +87,16 @@
 			path = ModelViews;
 			sourceTree = "<group>";
 		};
+		C644B5662ABEA76B0031CA67 /* Signup&Login Views */ = {
+			isa = PBXGroup;
+			children = (
+				C644B5692ABEA79B0031CA67 /* HeaderView.swift */,
+				C644B5672ABEA79B0031CA67 /* LoginView.swift */,
+				C644B5682ABEA79B0031CA67 /* RegisterView.swift */,
+			);
+			path = "Signup&Login Views";
+			sourceTree = "<group>";
+		};
 		D599DEB72A95C327009D7CF6 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +120,7 @@
 				2B0273912AB8691F007FB8B8 /* CoreDataManager.swift */,
 				D599DEC32A95C327009D7CF6 /* iScheduleApp.swift */,
 				D599DEC72A95C329009D7CF6 /* Assets.xcassets */,
+				C644B5662ABEA76B0031CA67 /* Signup&Login Views */,
 				2B0273842AB8432B007FB8B8 /* ModelViews */,
 				2B0273802AB84274007FB8B8 /* MainViews */,
 				D599DEC92A95C329009D7CF6 /* Preview Content */,
@@ -192,8 +209,10 @@
 				C644B5642ABEA71F0031CA67 /* KeychainManager.swift in Sources */,
 				2B02737C2AB84254007FB8B8 /* TaskSettingsView.swift in Sources */,
 				2B02737B2AB84254007FB8B8 /* AddListView.swift in Sources */,
+				C644B56A2ABEA79B0031CA67 /* LoginView.swift in Sources */,
 				2B0273882AB8432B007FB8B8 /* TaskNumView.swift in Sources */,
 				2B02737A2AB84254007FB8B8 /* ListSettingsView.swift in Sources */,
+				C644B56C2ABEA79B0031CA67 /* HeaderView.swift in Sources */,
 				2B02738A2AB8432B007FB8B8 /* MyListsView.swift in Sources */,
 				2B02737E2AB84254007FB8B8 /* ListView.swift in Sources */,
 				2BBB63892ABEA0F7001D2EF8 /* CoreDataManager.swift in Sources */,
@@ -201,6 +220,7 @@
 				2B02738D2AB8442C007FB8B8 /* iScheduleModel.xcdatamodeld in Sources */,
 				2B02737D2AB84254007FB8B8 /* AddTaskView.swift in Sources */,
 				D599DEC42A95C327009D7CF6 /* iScheduleApp.swift in Sources */,
+				C644B56B2ABEA79B0031CA67 /* RegisterView.swift in Sources */,
 				C644B5652ABEA71F0031CA67 /* UserRegisterViewModel.swift in Sources */,
 				2B02737F2AB84254007FB8B8 /* TaskView.swift in Sources */,
 			);
