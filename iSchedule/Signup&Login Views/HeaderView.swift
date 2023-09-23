@@ -17,7 +17,7 @@ struct HeaderView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 0)
                 .foregroundColor(bg1)
-                .frame(height: 350)
+                .frame(height: 300)
                 .offset(y:20)
             VStack {
                 Text(title)
