@@ -15,16 +15,40 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             VStack {
-                HeaderView(title: "iSchedule", slogan: "Plan with Precision, iSchedule Every Mission.", bg1: Color.blue)
-                    .offset(y: 40)
-                Form {
-                    TextField("Email Address", text: $username)
-                        .textFieldStyle(DefaultTextFieldStyle())
-                        .autocapitalization(.none)
-                        .autocorrectionDisabled()
-                    SecureField("Password", text: $password)
-                        .textFieldStyle(DefaultTextFieldStyle())
-    
+                HeaderView(title: "iSchedule", slogan: "Plan with Precision, iSchedule Every Mission.", bg1: Color.blue, bg2: Color.purple, bg3: Color.pink)
+                    .offset(y: -20)
+                Spacer()
+                
+                VStack {
+                    // Email Address field
+                    HStack {
+                        TextField("Email Address", text: $username)
+                            .textFieldStyle(DefaultTextFieldStyle())
+                            .autocapitalization(.none)
+                            .autocorrectionDisabled()
+                    }
+                    .padding(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(lineWidth: 2)
+                            .foregroundColor(.gray)
+                    )
+                    .padding([.top], 10)
+                    
+                    // Password field
+                    HStack {
+                        SecureField("Password", text: $password)
+                            .textFieldStyle(DefaultTextFieldStyle())
+                    }
+                    .padding(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(lineWidth: 2)
+                            .foregroundColor(.gray)
+                    )
+                    .padding([.top], 10)
+                    
+                    // Login button
                     Button(action: {
                         if UserRegistration.validateCredentials(username: username, password: password) == true {
                             print("Login successfully")
@@ -34,21 +58,30 @@ struct LoginView: View {
                         }
                     }) {
                         Text("Login")
-                            .bold()
-                        
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(height: 40)
+                            .frame(maxWidth: .infinity)
+                            .background(Color.blue)
+                            .cornerRadius(10)
                     }
+                    .padding([.top, .bottom], 10)
                 }
+                .offset(y:-150)
+                
+                Spacer()
                 
                 VStack {
                     Text("Haven't Created An Account?")
                     NavigationLink("Sign Up", destination: RegisterView())
                 }
-                .padding(.bottom, 50)
-                
-                Spacer()
+                .padding(.bottom)
             }
+            .padding(30)
+            
         }
     }
+    
 }
 
 struct LoginView_Previews: PreviewProvider {

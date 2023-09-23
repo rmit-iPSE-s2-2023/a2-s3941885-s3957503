@@ -13,7 +13,8 @@ struct RegisterView: View {
     var body: some View {
         NavigationView {
             VStack {
-                
+                HeaderView(title: "Register", slogan: "Start planning with us", bg1: Color.red, bg2: Color.orange, bg3: Color.yellow)
+                    .offset(y: 50)
                 HStack {
                     TextField("Email Address", text: $UserRegistration.email)
                         .textFieldStyle(DefaultTextFieldStyle())
@@ -32,7 +33,6 @@ struct RegisterView: View {
                         .foregroundColor(.gray)
                 )
                 .padding([.top], 10)
-                
                 //Password field
                 HStack {
                     SecureField("Password", text: $UserRegistration.password)
@@ -92,9 +92,11 @@ struct RegisterView: View {
                         
                     }
                 }
+                
+                Spacer()
             }
+            .offset(y: -110)
             .padding(30)
-            Spacer()
             
             
         }

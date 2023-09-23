@@ -39,7 +39,7 @@
 		2B0273862AB8432B007FB8B8 /* TaskRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
 		2B0273872AB8432B007FB8B8 /* MyListsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyListsView.swift; sourceTree = "<group>"; };
 		2B02738C2AB8442C007FB8B8 /* iScheduleModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iScheduleModel.xcdatamodel; sourceTree = "<group>"; };
-		2B0273912AB8691F007FB8B8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = Managers/CoreDataManager.swift; sourceTree = "<group>"; };
+		2B0273912AB8691F007FB8B8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		C644B5622ABEA71F0031CA67 /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		C644B5632ABEA71F0031CA67 /* UserRegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRegisterViewModel.swift; sourceTree = "<group>"; };
 		C644B5672ABEA79B0031CA67 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 		2B0273842AB8432B007FB8B8 /* ModelViews */ = {
 			isa = PBXGroup;
 			children = (
-				C644B5622ABEA71F0031CA67 /* KeychainManager.swift */,
+				C644B5692ABEA79B0031CA67 /* HeaderView.swift */,
 				C644B5632ABEA71F0031CA67 /* UserRegisterViewModel.swift */,
 				2B0273852AB8432B007FB8B8 /* TaskNumView.swift */,
 				2B0273862AB8432B007FB8B8 /* TaskRow.swift */,
@@ -87,10 +87,18 @@
 			path = ModelViews;
 			sourceTree = "<group>";
 		};
+		2B88F3452AC1486600D81191 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				C644B5622ABEA71F0031CA67 /* KeychainManager.swift */,
+				2B0273912AB8691F007FB8B8 /* CoreDataManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		C644B5662ABEA76B0031CA67 /* Signup&Login Views */ = {
 			isa = PBXGroup;
 			children = (
-				C644B5692ABEA79B0031CA67 /* HeaderView.swift */,
 				C644B5672ABEA79B0031CA67 /* LoginView.swift */,
 				C644B5682ABEA79B0031CA67 /* RegisterView.swift */,
 			);
@@ -117,7 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				2B02738B2AB8442C007FB8B8 /* iScheduleModel.xcdatamodeld */,
-				2B0273912AB8691F007FB8B8 /* CoreDataManager.swift */,
+				2B88F3452AC1486600D81191 /* Manager */,
 				D599DEC32A95C327009D7CF6 /* iScheduleApp.swift */,
 				D599DEC72A95C329009D7CF6 /* Assets.xcassets */,
 				C644B5662ABEA76B0031CA67 /* Signup&Login Views */,
