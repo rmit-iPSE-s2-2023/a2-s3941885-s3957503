@@ -15,7 +15,7 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             VStack {
-                HeaderView(title: "iSchedule", slogan: "Plan with Precision, iSchedule Every Mission.", bg1: Color.blue, bg2: Color.purple, bg3: Color.pink)
+                HeaderView(title: "iSchedule", slogan: "Plan with Precision, iSchedule Every Mission.", bg1: Color.blue)
                     .offset(y: 40)
                 Form {
                     TextField("Email Address", text: $username)

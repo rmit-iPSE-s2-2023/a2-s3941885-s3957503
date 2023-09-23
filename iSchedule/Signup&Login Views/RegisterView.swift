@@ -13,16 +13,26 @@ struct RegisterView: View {
     var body: some View {
         NavigationView {
             VStack {
-                HeaderView(title: "Register", slogan: "Start planning with us", bg1: Color.red, bg2: Color.orange, bg3: Color.yellow)
+                HeaderView(title: "Register", slogan: "Start planning with us", bg1: Color.red)
                 Form {
-                    TextField("Email Address", text: $UserRegistration.email)
-                        .textFieldStyle(DefaultTextFieldStyle())
-                        .autocapitalization(.none)
-                        .autocorrectionDisabled()
-                    SecureField("Password", text: $UserRegistration.password)
-                        .textFieldStyle(DefaultTextFieldStyle())
-                    SecureField("Confirm Password", text: $UserRegistration.confirmPassword)
-                        .textFieldStyle(DefaultTextFieldStyle())
+                    HStack {
+                        TextField("Email Address", text: $UserRegistration.email)
+                            .textFieldStyle(DefaultTextFieldStyle())
+                            .autocapitalization(.none)
+                            .autocorrectionDisabled()
+                        
+                        
+                        Image(systemName: "checkmark")
+                    }
+                    
+                    HStack {
+                        SecureField("Password", text: $UserRegistration.password)
+                            .textFieldStyle(DefaultTextFieldStyle())
+                    }
+                    HStack {
+                        SecureField("Confirm Password", text: $UserRegistration.confirmPassword)
+                            .textFieldStyle(DefaultTextFieldStyle())
+                    }
                     
                 }
                 

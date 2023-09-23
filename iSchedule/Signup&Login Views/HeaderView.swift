@@ -11,23 +11,14 @@ struct HeaderView: View {
     let title: String
     let slogan: String
     let bg1: Color
-    let bg2: Color
-    let bg3: Color
+
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 0)
                 .foregroundColor(bg1)
-                .frame(height: 260)
-                .offset(y:-20)
-            RoundedRectangle(cornerRadius: 0)
-                .foregroundColor(bg2)
-                .offset(y:110)
-                .frame(height: 30)
-            RoundedRectangle(cornerRadius: 0)
-                .foregroundColor(bg3)
-                .offset(y:140)
-                .frame(height: 30)
+                .frame(height: 350)
+                .offset(y:20)
             VStack {
                 Text(title)
                     .foregroundColor(Color.white)
@@ -48,6 +39,6 @@ struct HeaderView: View {
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView(title: "iSchedule", slogan: "Plan with Precision, iSchedule Every Mission.", bg1: Color.blue, bg2: Color.purple, bg3: Color.pink)
+        HeaderView(title: "iSchedule", slogan: "Plan with Precision, iSchedule Every Mission.", bg1: Color.blue)
     }
 }
