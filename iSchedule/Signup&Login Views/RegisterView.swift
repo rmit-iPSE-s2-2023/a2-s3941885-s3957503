@@ -33,12 +33,14 @@ struct RegisterView: View {
                 )
                 .padding([.top], 10)
                 
-                
+                //Password field
                 HStack {
                     SecureField("Password", text: $UserRegistration.password)
                         .textFieldStyle(DefaultTextFieldStyle())
                     
-                    Image(systemName: "checkmark")
+                    Image(systemName: UserRegistration.isPasswordValid() ? "checkmark" : "xmark")
+                        .fontWeight(.bold)
+                        .foregroundColor(UserRegistration.isPasswordValid() ? .green : .red)
                 }
                 .padding(10)
                 .overlay (
@@ -48,7 +50,7 @@ struct RegisterView: View {
                 )
                 .padding([.top], 10)
                 
-                
+                //Confirm password field
                 HStack {
                     SecureField("Confirm Password", text: $UserRegistration.confirmPassword)
                         .textFieldStyle(DefaultTextFieldStyle())
@@ -65,6 +67,8 @@ struct RegisterView: View {
                 )
                 .padding([.top, .bottom], 10)
                 
+                
+                //Signup button field
                 HStack{
                     Button(){
                         if UserRegistration.isRegistrationComplete() == true {
