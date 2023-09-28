@@ -28,7 +28,7 @@ class KeychainManager {
         let accountUsername = credential.username
         let accountPasssword = credential.password.data(using: .utf8)!
         
-        var query: [String: Any] = [
+        let query: [String: Any] = [
             kSecClass as String: kSecClassInternetPassword,
             kSecAttrAccount as String: accountUsername,
             kSecAttrServer as String: KeychainManager.server,
@@ -50,7 +50,7 @@ class KeychainManager {
         ]
         
         var item: CFTypeRef?
-        var status = SecItemCopyMatching(query as CFDictionary, &item)
+        let status = SecItemCopyMatching(query as CFDictionary, &item)
         guard status != errSecItemNotFound else { throw KeychainError.noPassword }
         
         guard status == errSecSuccess else { throw KeychainError.unhandledError(status: status) }

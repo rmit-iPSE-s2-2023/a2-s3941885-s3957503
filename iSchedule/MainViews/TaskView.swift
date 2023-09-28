@@ -94,18 +94,16 @@ struct TaskView: View {
             }
             .padding(.trailing)
 
-            List {
-                ForEach(sortedTasks.filter { task in
-                    selectedStatus == .all || task.status == selectedStatus.rawValue
-                }, id: \.self) { task in
-                    NavigationLink(destination: TaskSettingsView(task: task).environment(\.managedObjectContext, self.viewContext)) {
-                        TaskRow(task: task) // You'd define the TaskRow view elsewhere in your code.
-                    }
-                }
-                .onDelete(perform: deleteTask)
+            ForEach(sortedTasks.filter { task in
+                selectedStatus == .all || task.status == selectedStatus.rawValue
+            }, id: \.self) { task in
+                TaskRow(task: task).environment(\.managedObjectContext, self.viewContext)
             }
+            .onDelete(perform: deleteTask)
             .id(refreshID)
             .searchable(text: $searchText)
+
+            Spacer()
         }
         .padding()
         .navigationBarItems(trailing: NavigationLink(

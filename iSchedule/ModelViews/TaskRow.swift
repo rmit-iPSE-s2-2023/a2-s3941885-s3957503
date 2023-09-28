@@ -18,13 +18,25 @@ struct TaskRow: View {
     
     var body: some View {
         HStack {
+            NavigationLink(destination: TaskSettingsView(task: task).environment(\.managedObjectContext, self.viewContext)) {
+                Image(systemName: "gearshape")
+                    .frame(width: 35, height: 35)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .clipShape(Circle())
+                    .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+                    .font(.system(size: 20))
+                    .padding([.leading], 20)
+            }.buttonStyle(PlainButtonStyle())
+            
             VStack(alignment: .leading) {
                 Text(task.title ?? "")
+                    .font(.headline)
+                Text("\(formatter.string(from: task.dueDate ?? Date())), \(timeFormatter.string(from: task.dueTime ?? Date()))")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
             }
-            Spacer()
-            Text("\(formatter.string(from: task.dueDate ?? Date())), \(timeFormatter.string(from: task.dueTime ?? Date()))")
-                .foregroundColor(.gray)
-                .font(.subheadline)
+            .frame(maxWidth: .infinity)
             
             Toggle("", isOn: Binding(
                 get: { task.status == "Completed" },
@@ -33,8 +45,15 @@ struct TaskRow: View {
                     saveContext()
                 }))
             .toggleStyle(CheckboxToggleStyle())
+            .padding([.trailing], 20)
         }
+        .frame(height: 80)
+        .background(Color.white)
+        .cornerRadius(10)
+        .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+        .padding([.bottom], 7)
     }
+    
     private func saveContext() {
         do {
             try viewContext.save()
@@ -43,6 +62,7 @@ struct TaskRow: View {
         }
     }
 }
+
 
 // Your custom Toggle Style
 struct CheckboxToggleStyle: ToggleStyle {
