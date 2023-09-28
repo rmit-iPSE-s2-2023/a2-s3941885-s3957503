@@ -49,17 +49,8 @@ struct ListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                // Search Bar
-                HStack {
-                    Image(systemName: "magnifyingglass")
-                    TextField("Search...", text: $searchText)
-                        .disableAutocorrection(true)
-                }
-                .padding(10)
-                .background(Color.white)
-                .cornerRadius(15)
-                .padding([.horizontal], 15)
-                .shadow(color: .black.opacity(0.20), radius: 2, x: 0, y: 4)
+                SearchBarView(text: $searchText)
+                    .padding([.horizontal], 15)
                 
                 // Task Categories
                 HStack {
@@ -71,6 +62,7 @@ struct ListView: View {
                 Text("My Lists")
                     .font(.title2)
                     .fontWeight(.semibold)
+                    .foregroundColor(Color.primary)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading)
                 ForEach(allLists.filter({ searchText.isEmpty ? true : $0.name?.localizedCaseInsensitiveContains(searchText) ?? false }), id: \.self) { list in
@@ -95,7 +87,7 @@ struct SwipeToDeleteView: View {
     var body: some View {
         ZStack {
             // Main Content
-            MyListsView(taskList: taskList) // Your existing MyListsView
+            MyListsView(taskList: taskList)
                 .background(Color.white)
                 .offset(x: offset)
                 .gesture(DragGesture()

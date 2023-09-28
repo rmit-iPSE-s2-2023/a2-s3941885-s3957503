@@ -10,6 +10,7 @@ struct TaskSettingsView: View {
     @State private var description: String
     @State private var selectDate = Date()
     @State private var selectTime = Date()
+    @State private var selectedPriority: TaskPriority
     
     init(task: Task) {
         self.task = task
@@ -17,6 +18,7 @@ struct TaskSettingsView: View {
         self._description = State(initialValue: task.taskDescription ?? "")
         self._selectDate = State(initialValue: task.dueDate ?? Date())
         self._selectTime = State(initialValue: task.dueTime ?? Date())
+        self._selectedPriority = State(initialValue: TaskPriority(rawValue: task.priority ?? "Medium") ?? .medium)
     }
     
     var combinedDateTime: Date {
@@ -45,6 +47,15 @@ struct TaskSettingsView: View {
                     selection: $selectTime,
                     displayedComponents: [.hourAndMinute]
                 )
+                
+                Picker(selection: $selectedPriority, label: Text("Priority")) {
+                    ForEach(TaskPriority.allCases, id: \.self) { priority in
+                        Text(priority.rawValue).tag(priority)
+                    }
+                }
+                .pickerStyle(MenuPickerStyle())
+                .frame(maxWidth: .infinity, alignment: .leading)
+                
             }
             
             Section("Description") {
@@ -60,6 +71,7 @@ struct TaskSettingsView: View {
             task.taskDescription = description
             task.dueDate = selectDate
             task.dueTime = selectTime
+            task.priority = selectedPriority.rawValue
             
             // Save changes
             do {

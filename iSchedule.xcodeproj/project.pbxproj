@@ -18,6 +18,7 @@
 		2B02738A2AB8432B007FB8B8 /* MyListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0273872AB8432B007FB8B8 /* MyListsView.swift */; };
 		2B02738D2AB8442C007FB8B8 /* iScheduleModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B02738B2AB8442C007FB8B8 /* iScheduleModel.xcdatamodeld */; };
 		2BBB63892ABEA0F7001D2EF8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0273912AB8691F007FB8B8 /* CoreDataManager.swift */; };
+		2BE349DA2ACBF9C40001760F /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE349D92ACBF9C40001760F /* SearchBarView.swift */; };
 		C644B5642ABEA71F0031CA67 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644B5622ABEA71F0031CA67 /* KeychainManager.swift */; };
 		C644B5652ABEA71F0031CA67 /* UserRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644B5632ABEA71F0031CA67 /* UserRegisterViewModel.swift */; };
 		C644B56A2ABEA79B0031CA67 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644B5672ABEA79B0031CA67 /* LoginView.swift */; };
@@ -42,6 +43,7 @@
 		2B0273872AB8432B007FB8B8 /* MyListsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyListsView.swift; sourceTree = "<group>"; };
 		2B02738C2AB8442C007FB8B8 /* iScheduleModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iScheduleModel.xcdatamodel; sourceTree = "<group>"; };
 		2B0273912AB8691F007FB8B8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		2BE349D92ACBF9C40001760F /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		C644B5622ABEA71F0031CA67 /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		C644B5632ABEA71F0031CA67 /* UserRegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRegisterViewModel.swift; sourceTree = "<group>"; };
 		C644B5672ABEA79B0031CA67 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				2B0273852AB8432B007FB8B8 /* TaskNumView.swift */,
 				2B0273862AB8432B007FB8B8 /* TaskRow.swift */,
 				2B0273872AB8432B007FB8B8 /* MyListsView.swift */,
+				2BE349D92ACBF9C40001760F /* SearchBarView.swift */,
 			);
 			path = ModelViews;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BE349DA2ACBF9C40001760F /* SearchBarView.swift in Sources */,
 				C644B5642ABEA71F0031CA67 /* KeychainManager.swift in Sources */,
 				2B02737C2AB84254007FB8B8 /* TaskSettingsView.swift in Sources */,
 				2B02737B2AB84254007FB8B8 /* AddListView.swift in Sources */,

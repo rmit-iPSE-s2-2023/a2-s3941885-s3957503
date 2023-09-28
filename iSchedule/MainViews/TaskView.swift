@@ -1,11 +1,22 @@
-//Make the design like listview
-//Make a button for tasksettings
-//When task is pressed it should extend to see description
-//Filter sort by dueDate&Time, High med low priority, drag and drop
-
-
 import SwiftUI
 import CoreData
+
+struct SearchBar: View {
+    @Binding var text: String
+
+    var body: some View {
+        HStack {
+            Image(systemName: "magnifyingglass")
+            TextField("Search...", text: $text)
+                .disableAutocorrection(true)
+        }
+        .padding(10)
+        .background(Color.white)
+        .cornerRadius(15)
+        .padding([.horizontal], 15)
+        .shadow(color: .black.opacity(0.20), radius: 2, x: 0, y: 4)
+    }
+}
 
 enum TaskPriority: String, CaseIterable {
     case high = "High"
@@ -26,6 +37,8 @@ enum Status: String, Identifiable, CaseIterable {
 enum SortOption: String, CaseIterable {
     case dateHighToLow = "Date: High to Low"
     case dateLowToHigh = "Date: Low to High"
+    case priorityHighToLow = "Priority: High to Low"
+    case priorityLowToHigh = "Priority: Low to High"
 }
 
 struct TaskView: View {
@@ -58,6 +71,27 @@ struct TaskView: View {
             return fetchedTasks.sorted(by: { $0.dueDate! > $1.dueDate! })
         case .dateLowToHigh:
             return fetchedTasks.sorted(by: { $0.dueDate! < $1.dueDate! })
+        case .priorityHighToLow:
+            return fetchedTasks.sorted(by: {
+                taskPriorityOrder(task: $0) > taskPriorityOrder(task: $1)
+            })
+        case .priorityLowToHigh:
+            return fetchedTasks.sorted(by: {
+                taskPriorityOrder(task: $0) < taskPriorityOrder(task: $1)
+            })
+        }
+    }
+
+    func taskPriorityOrder(task: Task) -> Int {
+        switch task.priority {
+        case TaskPriority.high.rawValue:
+            return 3
+        case TaskPriority.medium.rawValue:
+            return 2
+        case TaskPriority.low.rawValue:
+            return 1
+        default:
+            return 0
         }
     }
 
@@ -77,15 +111,15 @@ struct TaskView: View {
 
     var body: some View {
         VStack {
-            Picker("Status", selection: $selectedStatus) {
-                ForEach(Status.allCases) { status in
-                    Text(status.rawValue).tag(status)
-                }
-            }
-            .pickerStyle(SegmentedPickerStyle())
-
+            SearchBar(text: $searchText)
+                .padding([.horizontal], -15)
+                .padding(.bottom, 10)
             HStack {
-                Spacer()
+                Text("My Tasks")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading)
                 Menu {
                     ForEach(SortOption.allCases, id: \.self) { option in
                         Button(action: {
@@ -99,16 +133,26 @@ struct TaskView: View {
                 }
             }
             .padding(.trailing)
-
+            
+            //Filter
+            Picker("Status", selection: $selectedStatus) {
+                ForEach(Status.allCases) { status in
+                    Text(status.rawValue).tag(status)
+                }
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .padding(.bottom, 10)
+            
+            //Task Lists
             ForEach(sortedTasks.filter { task in
-                selectedStatus == .all || task.status == selectedStatus.rawValue
+                (selectedStatus == .all || task.status == selectedStatus.rawValue) &&
+                (searchText.isEmpty || task.title!.contains(searchText))
             }, id: \.self) { task in
                 TaskRow(task: task).environment(\.managedObjectContext, self.viewContext)
             }
             .onDelete(perform: deleteTask)
             .id(refreshID)
-            .searchable(text: $searchText)
-
+            
             Spacer()
         }
         .padding()
@@ -130,3 +174,4 @@ struct TaskView_Previews: PreviewProvider {
             .environment(\.managedObjectContext, context)
     }
 }
+

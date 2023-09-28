@@ -16,12 +16,25 @@ struct TaskRow: View {
         return formatter
     }()
     
+    var taskColor: Color {
+        switch task.priority {
+        case TaskPriority.high.rawValue:
+            return Color.red
+        case TaskPriority.medium.rawValue:
+            return Color.orange
+        case TaskPriority.low.rawValue:
+            return Color.green
+        default:
+            return Color.blue
+        }
+    }
+
     var body: some View {
         HStack {
             NavigationLink(destination: TaskSettingsView(task: task).environment(\.managedObjectContext, self.viewContext)) {
                 Image(systemName: "gearshape")
                     .frame(width: 35, height: 35)
-                    .background(Color.blue)
+                    .background(taskColor)  // Using the computed property for the background color
                     .foregroundColor(.white)
                     .clipShape(Circle())
                     .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
@@ -62,7 +75,6 @@ struct TaskRow: View {
         }
     }
 }
-
 
 // Your custom Toggle Style
 struct CheckboxToggleStyle: ToggleStyle {
