@@ -23,6 +23,7 @@
 		C644B56A2ABEA79B0031CA67 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644B5672ABEA79B0031CA67 /* LoginView.swift */; };
 		C644B56B2ABEA79B0031CA67 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644B5682ABEA79B0031CA67 /* RegisterView.swift */; };
 		C644B56C2ABEA79B0031CA67 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644B5692ABEA79B0031CA67 /* HeaderView.swift */; };
+		C6A0631F2AC62D090065A466 /* APIManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A0631E2AC62D090065A466 /* APIManagerView.swift */; };
 		D599DEC42A95C327009D7CF6 /* iScheduleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D599DEC32A95C327009D7CF6 /* iScheduleApp.swift */; };
 		D599DEC82A95C329009D7CF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D599DEC72A95C329009D7CF6 /* Assets.xcassets */; };
 		D599DECB2A95C329009D7CF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D599DECA2A95C329009D7CF6 /* Preview Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		C644B5672ABEA79B0031CA67 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C644B5682ABEA79B0031CA67 /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		C644B5692ABEA79B0031CA67 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		C6A0631E2AC62D090065A466 /* APIManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerView.swift; sourceTree = "<group>"; };
 		D599DEC02A95C327009D7CF6 /* iSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D599DEC32A95C327009D7CF6 /* iScheduleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iScheduleApp.swift; sourceTree = "<group>"; };
 		D599DEC72A95C329009D7CF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,6 +107,14 @@
 			path = "Signup&Login Views";
 			sourceTree = "<group>";
 		};
+		C6A0631D2AC62BDA0065A466 /* API Handler */ = {
+			isa = PBXGroup;
+			children = (
+				C6A0631E2AC62D090065A466 /* APIManagerView.swift */,
+			);
+			path = "API Handler";
+			sourceTree = "<group>";
+		};
 		D599DEB72A95C327009D7CF6 = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +139,7 @@
 				D599DEC32A95C327009D7CF6 /* iScheduleApp.swift */,
 				D599DEC72A95C329009D7CF6 /* Assets.xcassets */,
 				C644B5662ABEA76B0031CA67 /* Signup&Login Views */,
+				C6A0631D2AC62BDA0065A466 /* API Handler */,
 				2B0273842AB8432B007FB8B8 /* ModelViews */,
 				2B0273802AB84274007FB8B8 /* MainViews */,
 				D599DEC92A95C329009D7CF6 /* Preview Content */,
@@ -225,6 +236,7 @@
 				2B02737E2AB84254007FB8B8 /* ListView.swift in Sources */,
 				2BBB63892ABEA0F7001D2EF8 /* CoreDataManager.swift in Sources */,
 				2B0273892AB8432B007FB8B8 /* TaskRow.swift in Sources */,
+				C6A0631F2AC62D090065A466 /* APIManagerView.swift in Sources */,
 				2B02738D2AB8442C007FB8B8 /* iScheduleModel.xcdatamodeld in Sources */,
 				2B02737D2AB84254007FB8B8 /* AddTaskView.swift in Sources */,
 				D599DEC42A95C327009D7CF6 /* iScheduleApp.swift in Sources */,
