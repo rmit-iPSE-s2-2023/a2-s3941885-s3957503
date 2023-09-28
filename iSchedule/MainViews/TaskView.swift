@@ -7,6 +7,12 @@
 import SwiftUI
 import CoreData
 
+enum TaskPriority: String, CaseIterable {
+    case high = "High"
+    case medium = "Medium"
+    case low = "Low"
+}
+
 enum Status: String, Identifiable, CaseIterable {
     var id: UUID {
         return UUID()

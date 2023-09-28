@@ -4,31 +4,36 @@ import CoreData
 struct AddTaskView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) var presentationMode
-
+    
     var selectedList: TaskList  // Initialized when navigating to this view
-
+    
     @State private var taskName: String = ""
     @State private var description: String = ""
     @State private var selectDate = Date()
     @State private var selectTime = Date()
-
+    @State private var selectedPriority: TaskPriority = .medium
+    
+    var isFormComplete: Bool {
+        return !taskName.isEmpty
+    }
+    
     var combinedDateTime: Date {
         let calendar = Calendar.current
         let dateComponents = calendar.dateComponents([.year, .month, .day], from: selectDate)
         let timeComponents = calendar.dateComponents([.hour, .minute], from: selectTime)
-
+        
         return calendar.date(bySettingHour: timeComponents.hour ?? 0,
                              minute: timeComponents.minute ?? 0,
                              second: 0,
                              of: dateComponents.date ?? Date()) ?? Date()
     }
-
+    
     var body: some View {
         Form {
             Section("Task Details") {
                 TextField("Title", text: $taskName)
                     .frame(height: 45)
-
+                
                 DatePicker(
                     "Date",
                     selection: $selectDate,
@@ -39,8 +44,18 @@ struct AddTaskView: View {
                     selection: $selectTime,
                     displayedComponents: [.hourAndMinute]
                 )
+                
+                
+                Picker(selection: $selectedPriority, label: Text("Priority")) {
+                    ForEach(TaskPriority.allCases, id: \.self) { priority in
+                        Text(priority.rawValue).tag(priority)
+                    }
+                }
+                .pickerStyle(MenuPickerStyle())
+                .frame(maxWidth: .infinity, alignment: .leading)
+                
             }
-
+            
             Section("Description") {
                 TextEditor(text: $description)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -51,20 +66,21 @@ struct AddTaskView: View {
         .navigationBarItems(trailing: Button(action: {
             addTask()
             presentationMode.wrappedValue.dismiss()
-        }, label: { Text("Save") }))
+        }, label: { Text("Save") }).disabled(!isFormComplete))
         .navigationTitle(Text("Add Task"))
     }
-
+    
     private func addTask() {
         let newTask = Task(context: viewContext)
         newTask.title = taskName
         newTask.dueDate = selectDate
         newTask.dueTime = selectTime
+        newTask.priority = selectedPriority.rawValue
         newTask.taskDescription = description
         newTask.dateCreated = Date()
         newTask.status = "In Progress"
         newTask.taskList = selectedList  // Link the new task to the pre-defined selected TaskList
-
+        
         do {
             try viewContext.save()
             print("Task saved successfully.")
