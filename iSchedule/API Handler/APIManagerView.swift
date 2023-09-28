@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-func fetchData() {
+func fetchQuotes(quoteModel: QuoteModel) {
     if let url = URL(string: "https://zenquotes.io/api/random") {
         URLSession.shared.dataTask(with: url) { data, _, error in
             if let data = data {
                 do {
                     let decodedQuotes = try JSONDecoder().decode([Quote].self, from: data)
                     DispatchQueue.main.async {
-                        self.quotes = decodedQuotes
+                        quoteModel.quotes = decodedQuotes
                     }
                 } catch {
                     print("Error decoding JSON: \(error)")
@@ -27,6 +27,6 @@ func fetchData() {
 }
 
 struct Quote: Codable {
-    let qoute: String
-    let author: String
+    let q: String
+    let a: String
 }
