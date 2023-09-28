@@ -4,6 +4,8 @@
 //
 //  Created by James Dale on 4/9/2023.
 //
+//We acknowledge that this section of our implementation adopted from canvas content.
+//  Week07Activity2
 
 import Foundation
 
