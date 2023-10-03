@@ -1,7 +1,3 @@
-//Possible further implementations
-//Maybe create a full combined tasks for inprogress and completed
-//Sort by day created, alphabetically and manual drag and drop sorting
-//dummy commit
 import SwiftUI
 import CoreData
 
@@ -41,7 +37,7 @@ struct ListView: View {
         
         do {
             try viewContext.save()
-            viewContext.refreshAllObjects() // Refresh all fetched results
+            viewContext.refreshAllObjects()
         } catch {
             print(error.localizedDescription)
         }
@@ -68,7 +64,7 @@ struct ListView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading)
                 ForEach(allLists.filter({ searchText.isEmpty ? true : $0.name?.localizedCaseInsensitiveContains(searchText) ?? false }), id: \.self) { list in
-                        SwipeToDeleteView(taskList: list, onDelete: {
+                        DeleteListGesture(taskList: list, onDelete: {
                             self.deleteList(at: [allLists.firstIndex(of: list)!])
                         })
                     }
@@ -77,64 +73,6 @@ struct ListView: View {
             
             .navigationBarItems(trailing: NavigationLink(destination: AddListView().environment(\.managedObjectContext, self.viewContext), label: { Text("Add List") }))
             .navigationTitle("Home")
-        }
-    }
-}
-
-struct SwipeToDeleteView: View {
-    var taskList: TaskList
-    var onDelete: () -> Void
-    
-    @State private var offset: CGFloat = 0
-    @State private var showingDeletionAlert = false // 1. New state property
-    
-    var body: some View {
-        ZStack {
-            // Main Content
-            MyListsView(taskList: taskList)
-                .background(Color.white)
-                .offset(x: offset)
-                .gesture(DragGesture()
-                    .onChanged { gesture in
-                        let translation = gesture.translation.width
-                        self.offset = min(0, translation)
-                    }
-                    .onEnded { gesture in
-                        withAnimation {
-                            if self.offset < -50 {
-                                self.showingDeletionAlert = true // 2. Set to true instead of onDelete
-                            } else {
-                                self.offset = 0
-                            }
-                        }
-                    }
-                )
-            
-            // Delete Button
-            HStack {
-                Spacer()
-                Image(systemName: "trash.fill")
-                    .foregroundColor(.white)
-                    .frame(width: 50, height: 50)
-                    .background(Color.red)
-                    .cornerRadius(10)
-            }
-            .opacity(Double(-offset / 50))
-            .padding(.trailing, -offset > 50 ? 0 : 50 + offset)
-        }
-        .alert(isPresented: $showingDeletionAlert) { // 3. Alert modifier
-            Alert(
-                title: Text("Delete Task"),
-                message: Text("Are you sure you want to delete this task?"),
-                primaryButton: .destructive(Text("Delete")) {
-                    self.onDelete()
-                },
-                secondaryButton: .cancel {
-                    withAnimation {
-                        self.offset = 0
-                    }
-                }
-            )
         }
     }
 }

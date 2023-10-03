@@ -1,22 +1,6 @@
 import SwiftUI
 import CoreData
-//design improvement
-struct SearchBar: View {
-    @Binding var text: String
 
-    var body: some View {
-        HStack {
-            Image(systemName: "magnifyingglass")
-            TextField("Search...", text: $text)
-                .disableAutocorrection(true)
-        }
-        .padding(10)
-        .background(Color.white)
-        .cornerRadius(15)
-        .padding([.horizontal], 15)
-        .shadow(color: .black.opacity(0.20), radius: 2, x: 0, y: 4)
-    }
-}
 
 enum TaskPriority: String, CaseIterable {
     case high = "High"
@@ -42,24 +26,36 @@ enum SortOption: String, CaseIterable {
 }
 
 struct TaskView: View {
-    
     @State private var selectedStatus: Status = .inProgress
-    @Environment(\.managedObjectContext) private var viewContext
-    @State private var refreshID = UUID()
-    @State private var searchText = ""
-    @State private var selectedSortOption: SortOption = .dateLowToHigh
+        @Environment(\.managedObjectContext) private var viewContext
+        @State private var refreshID = UUID()
+        @State private var searchText = ""
+        @State private var selectedSortOption: SortOption = .dateLowToHigh
+        @State private var showingExtendOptions: Bool = false
+        @State private var selectedTaskToExtend: Task?
 
-    var selectedTaskList: TaskList
-    var fetchRequest: FetchRequest<Task>
+        var selectedTaskList: TaskList
+        var fetchRequest: FetchRequest<Task>
 
-    init(taskList: TaskList) {
-        self.selectedTaskList = taskList
-        fetchRequest = FetchRequest<Task>(
-            entity: Task.entity(),
-            sortDescriptors: [],
-            predicate: NSPredicate(format: "taskList == %@", selectedTaskList)
-        )
-    }
+        let extendOptions: [String: TimeInterval] = [
+            "+30 min": 30*60,
+            "+1hr": 1*3600,
+            "+2hr": 2*3600,
+            "+3hr": 3*3600,
+            "+6hr": 6*3600,
+            "+12hr": 12*3600,
+            "+24hr": 24*3600,
+            "+48hr": 48*3600
+        ]
+
+        init(taskList: TaskList) {
+            self.selectedTaskList = taskList
+            fetchRequest = FetchRequest<Task>(
+                entity: Task.entity(),
+                sortDescriptors: [],
+                predicate: NSPredicate(format: "taskList == %@", selectedTaskList)
+            )
+        }
     
     var fetchedTasks: FetchedResults<Task> {
         fetchRequest.wrappedValue
@@ -108,54 +104,67 @@ struct TaskView: View {
             print(error.localizedDescription)
         }
     }
+    
+    func extendTime(for task: Task, by interval: TimeInterval) {
+        guard let currentDueDate = task.dueDate else { return }
+        task.dueDate = currentDueDate.addingTimeInterval(interval)
+        do {
+            try viewContext.save()
+            refreshID = UUID()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 
     var body: some View {
-        VStack {
-            SearchBar(text: $searchText)
-                .padding([.horizontal], -15)
+        VStack(spacing: 0) {
+            SearchBarView(text: $searchText)
+                .padding([.horizontal])
                 .padding(.bottom, 10)
-            HStack {
-                Text("My Tasks")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading)
-                Menu {
-                    ForEach(SortOption.allCases, id: \.self) { option in
-                        Button(action: {
-                            selectedSortOption = option
-                        }) {
-                            Text(option.rawValue)
+
+            ScrollView {
+                VStack(spacing: 15) {
+                    HStack {
+                        Text("My Tasks")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading)
+                        Menu {
+                            ForEach(SortOption.allCases, id: \.self) { option in
+                                Button(action: {
+                                    selectedSortOption = option
+                                }) {
+                                    Text(option.rawValue)
+                                }
+                            }
+                        } label: {
+                            Label("Sort by", systemImage: "arrow.up.arrow.down.circle")
                         }
                     }
-                } label: {
-                    Label("Sort by", systemImage: "arrow.up.arrow.down.circle")
+                    .padding(.trailing)
+                    
+                    Picker("Status", selection: $selectedStatus) {
+                        ForEach(Status.allCases) { status in
+                            Text(status.rawValue).tag(status)
+                        }
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .padding(.bottom, 10)
+
+                    ForEach(sortedTasks.filter { task in
+                        (selectedStatus == .all || task.status == selectedStatus.rawValue) &&
+                        (searchText.isEmpty || task.title!.contains(searchText))
+                    }, id: \.self) { task in
+                        DeleteTaskRowGesture(task: task) {
+                            deleteTask(at: [fetchedTasks.firstIndex(of: task)!])
+                        }
+                        .environment(\.managedObjectContext, self.viewContext)
+                    }
                 }
+                .padding()
             }
-            .padding(.trailing)
-            
-            //Filter
-            Picker("Status", selection: $selectedStatus) {
-                ForEach(Status.allCases) { status in
-                    Text(status.rawValue).tag(status)
-                }
-            }
-            .pickerStyle(SegmentedPickerStyle())
-            .padding(.bottom, 10)
-            
-            //Task Lists
-            ForEach(sortedTasks.filter { task in
-                (selectedStatus == .all || task.status == selectedStatus.rawValue) &&
-                (searchText.isEmpty || task.title!.contains(searchText))
-            }, id: \.self) { task in
-                TaskRow(task: task).environment(\.managedObjectContext, self.viewContext)
-            }
-            .onDelete(perform: deleteTask)
-            .id(refreshID)
-            
-            Spacer()
         }
-        .padding()
         .navigationBarItems(trailing: NavigationLink(
             destination: AddTaskView(selectedList: self.selectedTaskList)
                             .environment(\.managedObjectContext, self.viewContext),
@@ -174,4 +183,3 @@ struct TaskView_Previews: PreviewProvider {
             .environment(\.managedObjectContext, context)
     }
 }
-

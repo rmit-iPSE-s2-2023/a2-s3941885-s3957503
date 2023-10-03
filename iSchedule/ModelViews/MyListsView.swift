@@ -53,7 +53,7 @@ struct MyListsView: View {
                     NavigationLink(destination: ListSettingsView(existingList: taskList).environment(\.managedObjectContext, self.viewContext)) {
                         Image(systemName: "\(iconName)")
                             .frame(width: 35, height: 35)
-                            .background(iconBackgroundColor) // use the computed property
+                            .background(iconBackgroundColor)
                             .foregroundColor(.white)
                             .clipShape(Circle())
                             .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
@@ -89,15 +89,4 @@ struct MyListsView: View {
         }
     }
     
-struct MyListsView_Previews: PreviewProvider {
-    static var previews: some View {
-        let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-        let newTaskList = TaskList(context: context)
-        newTaskList.name = "Sample List"
-        newTaskList.colorString = "red" // For the purpose of the preview
-        
-        return MyListsView(taskList: newTaskList)
-            .environment(\.managedObjectContext, context)
-    }
-}
 
