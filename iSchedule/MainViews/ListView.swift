@@ -41,10 +41,12 @@ struct ListView: View {
         
         do {
             try viewContext.save()
+            viewContext.refreshAllObjects() // Refresh all fetched results
         } catch {
             print(error.localizedDescription)
         }
     }
+
     
     var body: some View {
         NavigationView {
@@ -78,11 +80,13 @@ struct ListView: View {
         }
     }
 }
+
 struct SwipeToDeleteView: View {
     var taskList: TaskList
     var onDelete: () -> Void
     
     @State private var offset: CGFloat = 0
+    @State private var showingDeletionAlert = false // 1. New state property
     
     var body: some View {
         ZStack {
@@ -98,9 +102,10 @@ struct SwipeToDeleteView: View {
                     .onEnded { gesture in
                         withAnimation {
                             if self.offset < -50 {
-                                self.onDelete()
+                                self.showingDeletionAlert = true // 2. Set to true instead of onDelete
+                            } else {
+                                self.offset = 0
                             }
-                            self.offset = 0
                         }
                     }
                 )
@@ -117,8 +122,23 @@ struct SwipeToDeleteView: View {
             .opacity(Double(-offset / 50))
             .padding(.trailing, -offset > 50 ? 0 : 50 + offset)
         }
+        .alert(isPresented: $showingDeletionAlert) { // 3. Alert modifier
+            Alert(
+                title: Text("Delete Task"),
+                message: Text("Are you sure you want to delete this task?"),
+                primaryButton: .destructive(Text("Delete")) {
+                    self.onDelete()
+                },
+                secondaryButton: .cancel {
+                    withAnimation {
+                        self.offset = 0
+                    }
+                }
+            )
+        }
     }
 }
+
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
