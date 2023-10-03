@@ -1,6 +1,6 @@
 import SwiftUI
 import CoreData
-
+//design improvement
 struct SearchBar: View {
     @Binding var text: String
 
