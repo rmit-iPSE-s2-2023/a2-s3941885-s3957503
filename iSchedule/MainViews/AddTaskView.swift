@@ -1,5 +1,6 @@
 import SwiftUI
 import CoreData
+import UserNotifications
 
 struct AddTaskView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -80,6 +81,19 @@ struct AddTaskView: View {
             addTask()
             presentationMode.wrappedValue.dismiss()
         }, label: { Text("Save") }).disabled(!isFormComplete))
+        .onAppear{
+            /*
+             Using User Notification framework in SwiftUI to request displaying notification on the screen
+             Requesting options [alert, sound, and badge].
+            */
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]){
+                allowed, error in
+                
+                //To test whether permission granted or no for showing notification.
+                let permission = allowed ? "Showing notification permitted." : "Notification permission denied."
+                print(permission)
+            }
+        }
         .navigationTitle(Text("Add Task"))
     }
     
