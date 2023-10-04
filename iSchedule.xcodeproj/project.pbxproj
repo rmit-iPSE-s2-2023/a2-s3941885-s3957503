@@ -21,6 +21,7 @@
 		2B70601C2ACC25040067CD7C /* DeleteTaskRowGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70601B2ACC25040067CD7C /* DeleteTaskRowGesture.swift */; };
 		2BBB63892ABEA0F7001D2EF8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0273912AB8691F007FB8B8 /* CoreDataManager.swift */; };
 		2BE349DA2ACBF9C40001760F /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE349D92ACBF9C40001760F /* SearchBarView.swift */; };
+		C60F4DD42ACD1AF500A30988 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60F4DD32ACD1AF500A30988 /* NotificationManager.swift */; };
 		C644B5642ABEA71F0031CA67 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644B5622ABEA71F0031CA67 /* KeychainManager.swift */; };
 		C644B5652ABEA71F0031CA67 /* UserRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644B5632ABEA71F0031CA67 /* UserRegisterViewModel.swift */; };
 		C644B56A2ABEA79B0031CA67 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644B5672ABEA79B0031CA67 /* LoginView.swift */; };
@@ -48,6 +49,7 @@
 		2B7060192ACC24DE0067CD7C /* DeleteListGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteListGesture.swift; sourceTree = "<group>"; };
 		2B70601B2ACC25040067CD7C /* DeleteTaskRowGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTaskRowGesture.swift; sourceTree = "<group>"; };
 		2BE349D92ACBF9C40001760F /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		C60F4DD32ACD1AF500A30988 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		C644B5622ABEA71F0031CA67 /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		C644B5632ABEA71F0031CA67 /* UserRegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRegisterViewModel.swift; sourceTree = "<group>"; };
 		C644B5672ABEA79B0031CA67 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			children = (
 				C644B5622ABEA71F0031CA67 /* KeychainManager.swift */,
 				2B0273912AB8691F007FB8B8 /* CoreDataManager.swift */,
+				C60F4DD32ACD1AF500A30988 /* NotificationManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				C644B56B2ABEA79B0031CA67 /* RegisterView.swift in Sources */,
 				C644B5652ABEA71F0031CA67 /* UserRegisterViewModel.swift in Sources */,
 				2B02737F2AB84254007FB8B8 /* TaskView.swift in Sources */,
+				C60F4DD42ACD1AF500A30988 /* NotificationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
