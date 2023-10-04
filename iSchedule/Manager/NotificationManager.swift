@@ -54,4 +54,27 @@ class NotficationManager{
             break
         }
     }
+    
+    /*
+     This is function take two arguments (selected date and time) and content we set to the body of the notification.
+     */
+    static func requestingNotification(date: Date, content: UNMutableNotificationContent) {
+        //Getting only (day, month, year, hour, minute, and second from a date.
+        let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        
+        //Setting up the trigger (when the notification should be delivered to the user).
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        
+        //Requesting a local notification and passing content and trigger.
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        //Adding requesting into user notification centre
+        UNUserNotificationCenter.current().add(request) { error in
+            
+            //Handling the error
+            let errorOccuredRNot = (error != nil) ? "Error setting up notification: \(String(describing: error))" : "Notification scheduled successfully"
+            print(errorOccuredRNot)
+            
+        }
+    }
 }
