@@ -27,5 +27,12 @@ class NotficationManager{
                              second: 0,
                              of: dateComponents.date ?? Date()) ?? Date()
         print("Printing joinedSelectedDate:\n \(joinedSelectedDate)")
+        
+        
+        // Calculate the time difference between the task time and the current time
+        let currentDate = Date()
+        let timeDifference = joinedSelectedDate.timeIntervalSince(currentDate)
+        
+        
     }
 }
