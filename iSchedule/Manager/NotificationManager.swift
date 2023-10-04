@@ -14,8 +14,14 @@ class NotficationManager{
         
         //Accessing to the content of UserNotification framework in SwiftUI to set content of the notification.
         let content = UNMutableNotificationContent()
-        content.title = "iSchedule Reminder"
-        content.body = "Upcoming Task:\(taskName)"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm a"
+        content.title = "iShedule Reminder"
+        let eventTime = dateFormatter.string(from: selectedTime)
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let eventDate = dateFormatter.string(from: selectedDate)
+        content.body = "Upcoming Task: \(taskName) on \(eventDate) at \(eventTime)"
+        content.sound = UNNotificationSound.default
         
         
         //Joining the selected date and time into a single Date
@@ -37,6 +43,11 @@ class NotficationManager{
         case "5 Seconds before":
             if timeDifference >= 5 {
                 let newDate = currentDate.addingTimeInterval(timeDifference - 5)
+                requestingNotification(date: newDate, content: content)
+            }
+        case "5 minutes before":
+            if timeDifference >= (5 * 60) {
+                let newDate = currentDate.addingTimeInterval(timeDifference - (5 * 60))
                 requestingNotification(date: newDate, content: content)
             }
         default:
