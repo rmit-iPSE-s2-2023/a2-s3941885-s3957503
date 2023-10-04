@@ -37,18 +37,7 @@ class NotficationManager{
         case "5 Seconds before":
             if timeDifference >= 5 {
                 let newDate = currentDate.addingTimeInterval(timeDifference - 5)
-                
-                let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: newDate)
-                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                
-                UNUserNotificationCenter.current().add(request) { error in
-                    if let error = error {
-                        print("Error scheduling notification: \(error)")
-                    } else {
-                        print("Notification scheduled successfully")
-                    }
-                }
+                requestingNotification(date: newDate, content: content)
             }
         default:
             break
