@@ -60,6 +60,21 @@ class NotficationManager{
                 let newDate = currentDate.addingTimeInterval(timeDifference - (10 * 60))
                 requestingNotification(date: newDate, content: content)
             }
+        case "30 minutes before":
+            if timeDifference >= (30 * 60) {
+                let newDate = currentDate.addingTimeInterval(timeDifference - 30 * 60)
+                requestingNotification(date: newDate, content: content)
+            }
+        case "1 hour before":
+            if timeDifference >= (60 * 60) {
+                let newDate = currentDate.addingTimeInterval(timeDifference - (60 * 60))
+                requestingNotification(date: newDate, content: content)
+            }
+        case "2 hours before":
+            if timeDifference >= (2 * 60 * 60) {
+                let newDate = currentDate.addingTimeInterval(timeDifference - (2 * 60 * 60))
+                requestingNotification(date: newDate, content: content)
+            }
         default:
             break
         }
