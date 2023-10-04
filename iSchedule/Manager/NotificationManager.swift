@@ -10,5 +10,7 @@ import UserNotifications
 
 class NotficationManager{
     
-    
+    static func sheduleAlert(taskName: String, selectedDate: Date, selectedTime: Date, selectedAlertOption: String){
+        
+    }
 }
