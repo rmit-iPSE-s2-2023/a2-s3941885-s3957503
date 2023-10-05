@@ -60,6 +60,14 @@ struct TaskSettingsView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
             }
+            Section(header: Text("Notification Options")) {
+                Picker("Set Alert", selection: $selectedAlertOption) {
+                    ForEach(alertOptionsList, id: \.self) { option in
+                        Text(option)
+                    }
+                }
+                .pickerStyle(.menu)
+            }
             
             Section("Description") {
                 TextEditor(text: $description)
