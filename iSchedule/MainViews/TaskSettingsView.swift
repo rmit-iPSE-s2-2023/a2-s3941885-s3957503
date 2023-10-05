@@ -12,6 +12,9 @@ struct TaskSettingsView: View {
     @State private var selectTime = Date()
     @State private var selectedPriority: TaskPriority
     
+    @State private var selectedAlertOption = "None"
+    let alertOptionsList = ["None", "5 Seconds before", "5 minutes before", "10 minutes before", "15 minutes before", "30 minutes before", "1 hour before", "2 hours before"]
+    
     init(task: Task) {
         self.task = task
         self._taskName = State(initialValue: task.title ?? "")
