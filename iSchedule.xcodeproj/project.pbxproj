@@ -17,6 +17,7 @@
 		2B0273892AB8432B007FB8B8 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0273862AB8432B007FB8B8 /* TaskRow.swift */; };
 		2B02738A2AB8432B007FB8B8 /* MyListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0273872AB8432B007FB8B8 /* MyListsView.swift */; };
 		2B02738D2AB8442C007FB8B8 /* iScheduleModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B02738B2AB8442C007FB8B8 /* iScheduleModel.xcdatamodeld */; };
+		2B0701352AD00FF8004F962A /* ButtonToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0701342AD00FF8004F962A /* ButtonToggleView.swift */; };
 		2B70601A2ACC24DE0067CD7C /* DeleteListGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7060192ACC24DE0067CD7C /* DeleteListGesture.swift */; };
 		2B70601C2ACC25040067CD7C /* DeleteTaskRowGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70601B2ACC25040067CD7C /* DeleteTaskRowGesture.swift */; };
 		2BBB63892ABEA0F7001D2EF8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0273912AB8691F007FB8B8 /* CoreDataManager.swift */; };
@@ -46,6 +47,7 @@
 		2B0273872AB8432B007FB8B8 /* MyListsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyListsView.swift; sourceTree = "<group>"; };
 		2B02738C2AB8442C007FB8B8 /* iScheduleModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iScheduleModel.xcdatamodel; sourceTree = "<group>"; };
 		2B0273912AB8691F007FB8B8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		2B0701342AD00FF8004F962A /* ButtonToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonToggleView.swift; sourceTree = "<group>"; };
 		2B7060192ACC24DE0067CD7C /* DeleteListGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteListGesture.swift; sourceTree = "<group>"; };
 		2B70601B2ACC25040067CD7C /* DeleteTaskRowGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTaskRowGesture.swift; sourceTree = "<group>"; };
 		2BE349D92ACBF9C40001760F /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				2BE349D92ACBF9C40001760F /* SearchBarView.swift */,
 				2B7060192ACC24DE0067CD7C /* DeleteListGesture.swift */,
 				2B70601B2ACC25040067CD7C /* DeleteTaskRowGesture.swift */,
+				2B0701342AD00FF8004F962A /* ButtonToggleView.swift */,
 			);
 			path = ModelViews;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				2B02737A2AB84254007FB8B8 /* ListSettingsView.swift in Sources */,
 				C644B56C2ABEA79B0031CA67 /* HeaderView.swift in Sources */,
 				2B02738A2AB8432B007FB8B8 /* MyListsView.swift in Sources */,
+				2B0701352AD00FF8004F962A /* ButtonToggleView.swift in Sources */,
 				2B02737E2AB84254007FB8B8 /* ListView.swift in Sources */,
 				2BBB63892ABEA0F7001D2EF8 /* CoreDataManager.swift in Sources */,
 				2B0273892AB8432B007FB8B8 /* TaskRow.swift in Sources */,
