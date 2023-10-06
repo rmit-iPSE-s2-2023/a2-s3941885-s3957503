@@ -4,7 +4,8 @@ struct TaskRow: View {
     @ObservedObject var task: Task
     @Environment(\.managedObjectContext) private var viewContext
     @State private var isExpanded: Bool = false  // State for expansion
-    
+    @State private var showingDateEditor = false // State for date editor popover
+
     let formatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "d/M/yyyy"
@@ -50,6 +51,35 @@ struct TaskRow: View {
                     Text("\(formatter.string(from: task.dueDate ?? Date())), \(timeFormatter.string(from: task.dueTime ?? Date()))")
                         .font(.subheadline)
                         .foregroundColor(.gray)
+                        .onLongPressGesture {
+                            self.showingDateEditor.toggle()
+                        }
+                        .popover(isPresented: $showingDateEditor, attachmentAnchor: .point(.trailing), arrowEdge: .trailing) {
+                            VStack {
+                                DatePicker(
+                                    "Edit Date",
+                                    selection: Binding<Date>(
+                                        get: { task.dueDate ?? Date() },
+                                        set: { newValue in task.dueDate = newValue }
+                                    ),
+                                    displayedComponents: [.date]
+                                )
+                                DatePicker(
+                                    "Edit Time",
+                                    selection: Binding<Date>(
+                                        get: { task.dueTime ?? Date() },
+                                        set: { newValue in task.dueTime = newValue }
+                                    ),
+                                    displayedComponents: [.hourAndMinute]
+                                )
+
+                                Button("Done") {
+                                    self.showingDateEditor.toggle()
+                                    saveContext()
+                                }
+                            }
+                            .padding()
+                        }
                 }
                 .frame(maxWidth: .infinity)
                 
@@ -78,7 +108,7 @@ struct TaskRow: View {
             
             
             if isExpanded {
-                Text(task.taskDescription ?? "")
+                Text(task.taskDescription ?? "no description given")
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .background(Color.white.opacity(0.9))
@@ -88,6 +118,7 @@ struct TaskRow: View {
         }
         .padding([.bottom], 7)
     }
+    
     // This function changes the task's priority when double-tapped
     func changePriority() {
         switch task.priority {
@@ -102,6 +133,7 @@ struct TaskRow: View {
         }
         saveContext()
     }
+    
     private func saveContext() {
         do {
             try viewContext.save()
@@ -121,4 +153,5 @@ struct CheckboxToggleStyle: ToggleStyle {
             }
     }
 }
+
 
