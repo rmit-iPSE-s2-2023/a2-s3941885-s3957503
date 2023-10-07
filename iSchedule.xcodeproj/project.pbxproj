@@ -18,6 +18,9 @@
 		2B02738A2AB8432B007FB8B8 /* MyListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0273872AB8432B007FB8B8 /* MyListsView.swift */; };
 		2B02738D2AB8442C007FB8B8 /* iScheduleModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B02738B2AB8442C007FB8B8 /* iScheduleModel.xcdatamodeld */; };
 		2B0701352AD00FF8004F962A /* ButtonToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0701342AD00FF8004F962A /* ButtonToggleView.swift */; };
+		2B07013B2AD032DB004F962A /* PieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B07013A2AD032DB004F962A /* PieView.swift */; };
+		2B3B645B2AD1293C005AF956 /* StatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B645A2AD1293C005AF956 /* StatisticView.swift */; };
+		2B3B645D2AD12B02005AF956 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B645C2AD12B02005AF956 /* MainTabView.swift */; };
 		2B70601A2ACC24DE0067CD7C /* DeleteListGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7060192ACC24DE0067CD7C /* DeleteListGesture.swift */; };
 		2B70601C2ACC25040067CD7C /* DeleteTaskRowGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70601B2ACC25040067CD7C /* DeleteTaskRowGesture.swift */; };
 		2BBB63892ABEA0F7001D2EF8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0273912AB8691F007FB8B8 /* CoreDataManager.swift */; };
@@ -48,6 +51,9 @@
 		2B02738C2AB8442C007FB8B8 /* iScheduleModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iScheduleModel.xcdatamodel; sourceTree = "<group>"; };
 		2B0273912AB8691F007FB8B8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		2B0701342AD00FF8004F962A /* ButtonToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonToggleView.swift; sourceTree = "<group>"; };
+		2B07013A2AD032DB004F962A /* PieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieView.swift; sourceTree = "<group>"; };
+		2B3B645A2AD1293C005AF956 /* StatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticView.swift; sourceTree = "<group>"; };
+		2B3B645C2AD12B02005AF956 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		2B7060192ACC24DE0067CD7C /* DeleteListGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteListGesture.swift; sourceTree = "<group>"; };
 		2B70601B2ACC25040067CD7C /* DeleteTaskRowGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTaskRowGesture.swift; sourceTree = "<group>"; };
 		2BE349D92ACBF9C40001760F /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
@@ -81,10 +87,12 @@
 			children = (
 				2B0273762AB84253007FB8B8 /* TaskSettingsView.swift */,
 				2B0273782AB84254007FB8B8 /* ListView.swift */,
+				2B3B645C2AD12B02005AF956 /* MainTabView.swift */,
 				2B0273742AB84252007FB8B8 /* ListSettingsView.swift */,
 				2B0273792AB84254007FB8B8 /* TaskView.swift */,
 				2B0273772AB84253007FB8B8 /* AddTaskView.swift */,
 				2B0273752AB84252007FB8B8 /* AddListView.swift */,
+				2B3B645A2AD1293C005AF956 /* StatisticView.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -98,6 +106,7 @@
 				2B0273862AB8432B007FB8B8 /* TaskRow.swift */,
 				2B0273872AB8432B007FB8B8 /* MyListsView.swift */,
 				2BE349D92ACBF9C40001760F /* SearchBarView.swift */,
+				2B07013A2AD032DB004F962A /* PieView.swift */,
 				2B7060192ACC24DE0067CD7C /* DeleteListGesture.swift */,
 				2B70601B2ACC25040067CD7C /* DeleteTaskRowGesture.swift */,
 				2B0701342AD00FF8004F962A /* ButtonToggleView.swift */,
@@ -245,11 +254,13 @@
 			files = (
 				2BE349DA2ACBF9C40001760F /* SearchBarView.swift in Sources */,
 				C644B5642ABEA71F0031CA67 /* KeychainManager.swift in Sources */,
+				2B3B645D2AD12B02005AF956 /* MainTabView.swift in Sources */,
 				2B02737C2AB84254007FB8B8 /* TaskSettingsView.swift in Sources */,
 				2B02737B2AB84254007FB8B8 /* AddListView.swift in Sources */,
 				C644B56A2ABEA79B0031CA67 /* LoginView.swift in Sources */,
 				C6A063252AC6303D0065A466 /* QuoteModel.swift in Sources */,
 				2B0273882AB8432B007FB8B8 /* TaskNumView.swift in Sources */,
+				2B07013B2AD032DB004F962A /* PieView.swift in Sources */,
 				2B02737A2AB84254007FB8B8 /* ListSettingsView.swift in Sources */,
 				C644B56C2ABEA79B0031CA67 /* HeaderView.swift in Sources */,
 				2B02738A2AB8432B007FB8B8 /* MyListsView.swift in Sources */,
@@ -263,6 +274,7 @@
 				2B70601A2ACC24DE0067CD7C /* DeleteListGesture.swift in Sources */,
 				2B02737D2AB84254007FB8B8 /* AddTaskView.swift in Sources */,
 				D599DEC42A95C327009D7CF6 /* iScheduleApp.swift in Sources */,
+				2B3B645B2AD1293C005AF956 /* StatisticView.swift in Sources */,
 				C644B56B2ABEA79B0031CA67 /* RegisterView.swift in Sources */,
 				C644B5652ABEA71F0031CA67 /* UserRegisterViewModel.swift in Sources */,
 				2B02737F2AB84254007FB8B8 /* TaskView.swift in Sources */,

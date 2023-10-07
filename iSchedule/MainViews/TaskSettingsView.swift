@@ -11,8 +11,8 @@ struct TaskSettingsView: View {
     @State private var selectDate = Date()
     @State private var selectTime = Date()
     @State private var selectedPriority: TaskPriority
+    @State private var selectedAlertOption: String  // State variable for Alert Option
     
-    @State private var selectedAlertOption = "None"
     let alertOptionsList = ["None", "5 Seconds before", "5 minutes before", "10 minutes before", "15 minutes before", "30 minutes before", "1 hour before", "2 hours before"]
     
     init(task: Task) {
@@ -22,6 +22,7 @@ struct TaskSettingsView: View {
         self._selectDate = State(initialValue: task.dueDate ?? Date())
         self._selectTime = State(initialValue: task.dueTime ?? Date())
         self._selectedPriority = State(initialValue: TaskPriority(rawValue: task.priority ?? "Medium") ?? .medium)
+        self._selectedAlertOption = State(initialValue: task.alertOption ?? "None")  // Initialize with task's alert option
     }
     
     var combinedDateTime: Date {
@@ -83,6 +84,7 @@ struct TaskSettingsView: View {
             task.dueDate = selectDate
             task.dueTime = selectTime
             task.priority = selectedPriority.rawValue
+            task.alertOption = selectedAlertOption  // Save the selected alert option
             
             // Save changes
             do {
