@@ -32,12 +32,23 @@
 		C644B56A2ABEA79B0031CA67 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644B5672ABEA79B0031CA67 /* LoginView.swift */; };
 		C644B56B2ABEA79B0031CA67 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644B5682ABEA79B0031CA67 /* RegisterView.swift */; };
 		C644B56C2ABEA79B0031CA67 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644B5692ABEA79B0031CA67 /* HeaderView.swift */; };
+		C663ACEF2AD369CE008F46B4 /* iScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663ACEE2AD369CE008F46B4 /* iScheduleTests.swift */; };
 		C6A0631F2AC62D090065A466 /* APIManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A0631E2AC62D090065A466 /* APIManagerView.swift */; };
 		C6A063252AC6303D0065A466 /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A063242AC6303D0065A466 /* QuoteModel.swift */; };
 		D599DEC42A95C327009D7CF6 /* iScheduleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D599DEC32A95C327009D7CF6 /* iScheduleApp.swift */; };
 		D599DEC82A95C329009D7CF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D599DEC72A95C329009D7CF6 /* Assets.xcassets */; };
 		D599DECB2A95C329009D7CF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D599DECA2A95C329009D7CF6 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C663ACF02AD369CE008F46B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D599DEB82A95C327009D7CF6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D599DEBF2A95C327009D7CF6;
+			remoteInfo = iSchedule;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2B0273742AB84252007FB8B8 /* ListSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSettingsView.swift; sourceTree = "<group>"; };
@@ -65,6 +76,8 @@
 		C644B5672ABEA79B0031CA67 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C644B5682ABEA79B0031CA67 /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		C644B5692ABEA79B0031CA67 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		C663ACEC2AD369CE008F46B4 /* iScheduleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iScheduleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C663ACEE2AD369CE008F46B4 /* iScheduleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iScheduleTests.swift; sourceTree = "<group>"; };
 		C6A0631E2AC62D090065A466 /* APIManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerView.swift; sourceTree = "<group>"; };
 		C6A063242AC6303D0065A466 /* QuoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteModel.swift; sourceTree = "<group>"; };
 		D599DEC02A95C327009D7CF6 /* iSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +87,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C663ACE92AD369CE008F46B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D599DEBD2A95C327009D7CF6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -136,6 +156,14 @@
 			path = "Signup&Login Views";
 			sourceTree = "<group>";
 		};
+		C663ACED2AD369CE008F46B4 /* iScheduleTests */ = {
+			isa = PBXGroup;
+			children = (
+				C663ACEE2AD369CE008F46B4 /* iScheduleTests.swift */,
+			);
+			path = iScheduleTests;
+			sourceTree = "<group>";
+		};
 		C6A0631D2AC62BDA0065A466 /* API Handler */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				D599DEC22A95C327009D7CF6 /* iSchedule */,
+				C663ACED2AD369CE008F46B4 /* iScheduleTests */,
 				D599DEC12A95C327009D7CF6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -157,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				D599DEC02A95C327009D7CF6 /* iSchedule.app */,
+				C663ACEC2AD369CE008F46B4 /* iScheduleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,6 +218,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C663ACEB2AD369CE008F46B4 /* iScheduleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C663ACF42AD369CE008F46B4 /* Build configuration list for PBXNativeTarget "iScheduleTests" */;
+			buildPhases = (
+				C663ACE82AD369CE008F46B4 /* Sources */,
+				C663ACE92AD369CE008F46B4 /* Frameworks */,
+				C663ACEA2AD369CE008F46B4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C663ACF12AD369CE008F46B4 /* PBXTargetDependency */,
+			);
+			name = iScheduleTests;
+			productName = iScheduleTests;
+			productReference = C663ACEC2AD369CE008F46B4 /* iScheduleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D599DEBF2A95C327009D7CF6 /* iSchedule */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D599DECE2A95C329009D7CF6 /* Build configuration list for PBXNativeTarget "iSchedule" */;
@@ -215,6 +263,10 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					C663ACEB2AD369CE008F46B4 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = D599DEBF2A95C327009D7CF6;
+					};
 					D599DEBF2A95C327009D7CF6 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -234,11 +286,19 @@
 			projectRoot = "";
 			targets = (
 				D599DEBF2A95C327009D7CF6 /* iSchedule */,
+				C663ACEB2AD369CE008F46B4 /* iScheduleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C663ACEA2AD369CE008F46B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D599DEBE2A95C327009D7CF6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -251,6 +311,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C663ACE82AD369CE008F46B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C663ACEF2AD369CE008F46B4 /* iScheduleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D599DEBC2A95C327009D7CF6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -288,7 +356,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C663ACF12AD369CE008F46B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D599DEBF2A95C327009D7CF6 /* iSchedule */;
+			targetProxy = C663ACF02AD369CE008F46B4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		C663ACF22AD369CE008F46B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = None.iScheduleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iSchedule.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iSchedule";
+			};
+			name = Debug;
+		};
+		C663ACF32AD369CE008F46B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = None.iScheduleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iSchedule.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iSchedule";
+			};
+			name = Release;
+		};
 		D599DECC2A95C329009D7CF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -462,6 +574,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C663ACF42AD369CE008F46B4 /* Build configuration list for PBXNativeTarget "iScheduleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C663ACF22AD369CE008F46B4 /* Debug */,
+				C663ACF32AD369CE008F46B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D599DEBB2A95C327009D7CF6 /* Build configuration list for PBXProject "iSchedule" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
