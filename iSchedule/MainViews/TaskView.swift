@@ -69,10 +69,10 @@ struct TaskView: View {
     var sortedTasks: [Task] {
         fetchedTasks.sorted { task1, task2 in
             if sortByDate && sortByPriority {
-                if task1.dueDate! == task2.dueDate! {
-                    return taskPriorityOrder(task: task1) > taskPriorityOrder(task: task2)
+                if taskPriorityOrder(task: task1) == taskPriorityOrder(task: task2) {
+                    return task1.dueDate! < task2.dueDate!
                 }
-                return task1.dueDate! < task2.dueDate!
+                return taskPriorityOrder(task: task1) > taskPriorityOrder(task: task2)
             } else if sortByDate {
                 return task1.dueDate! < task2.dueDate!
             } else if sortByPriority {
@@ -82,9 +82,12 @@ struct TaskView: View {
         }
     }
 
-    
-    
-    
+
+
+
+
+
+
     func taskPriorityOrder(task: Task) -> Int {
         switch task.priority {
         case TaskPriority.high.rawValue:

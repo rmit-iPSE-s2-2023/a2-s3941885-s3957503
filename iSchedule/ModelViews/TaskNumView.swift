@@ -16,7 +16,7 @@ struct TaskNumView: View {
     var body: some View {
         HStack {
             Image(systemName: "\(iconName)")
-                .frame(width: 35, height: 35)
+                .frame(width: 30, height: 30)
                 .background(iconBackgroundColor)
                 .foregroundColor(.white)
                 .clipShape(Circle())
@@ -37,7 +37,7 @@ struct TaskNumView: View {
             .padding([.leading], 3)
             .font(.system(size: 20))
         }
-        .frame(width: 200, height: 100)  
+        .frame(width: 180, height: 70)
         .background(Color.white)
         .cornerRadius(10)
         .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)

@@ -13,17 +13,23 @@ struct MyListsView: View {
         self.id = taskList.objectID
     }
     private func fetchNumberOfTasks() -> Int {
-            let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "taskList == %@", taskList)
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+        
+        let listPredicate = NSPredicate(format: "taskList == %@", taskList)
+        let statusPredicate = NSPredicate(format: "status == %@", "In Progress")
+        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [listPredicate, statusPredicate])
+        
+        fetchRequest.predicate = compoundPredicate
             
-            do {
-                let fetchedTasks = try viewContext.fetch(fetchRequest)
-                return fetchedTasks.count
-            } catch {
-                print("Failed to fetch tasks: \(error)")
-                return 0
-            }
+        do {
+            let fetchedTasks = try viewContext.fetch(fetchRequest)
+            return fetchedTasks.count
+        } catch {
+            print("Failed to fetch tasks: \(error)")
+            return 0
         }
+    }
+
     var iconBackgroundColor: Color {
         if let colorString = taskList.colorString {
             if colorString == "red" {

@@ -108,13 +108,16 @@ struct TaskRow: View {
             
             
             if isExpanded {
-                Text(task.taskDescription ?? "no description given")
+                Text(task.taskDescription?.isEmpty ?? true ? "No description given" : task.taskDescription ?? "")
+                    .italic() // Make the text italic
+                    .opacity(task.taskDescription?.isEmpty ?? true ? 0.5 : 1.0) // Adjust opacity based on content
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .background(Color.white.opacity(0.9))
                     .cornerRadius(10)
                     .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
             }
+
         }
         .padding([.bottom], 7)
     }
