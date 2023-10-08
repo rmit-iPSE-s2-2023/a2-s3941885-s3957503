@@ -33,6 +33,7 @@
 		C644B56B2ABEA79B0031CA67 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644B5682ABEA79B0031CA67 /* RegisterView.swift */; };
 		C644B56C2ABEA79B0031CA67 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C644B5692ABEA79B0031CA67 /* HeaderView.swift */; };
 		C663ACEF2AD369CE008F46B4 /* iScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663ACEE2AD369CE008F46B4 /* iScheduleTests.swift */; };
+		C663ACF62AD36B4C008F46B4 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663ACF52AD36B4C008F46B4 /* ModelTests.swift */; };
 		C6A0631F2AC62D090065A466 /* APIManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A0631E2AC62D090065A466 /* APIManagerView.swift */; };
 		C6A063252AC6303D0065A466 /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A063242AC6303D0065A466 /* QuoteModel.swift */; };
 		D599DEC42A95C327009D7CF6 /* iScheduleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D599DEC32A95C327009D7CF6 /* iScheduleApp.swift */; };
@@ -78,6 +79,7 @@
 		C644B5692ABEA79B0031CA67 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		C663ACEC2AD369CE008F46B4 /* iScheduleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iScheduleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C663ACEE2AD369CE008F46B4 /* iScheduleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iScheduleTests.swift; sourceTree = "<group>"; };
+		C663ACF52AD36B4C008F46B4 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 		C6A0631E2AC62D090065A466 /* APIManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerView.swift; sourceTree = "<group>"; };
 		C6A063242AC6303D0065A466 /* QuoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteModel.swift; sourceTree = "<group>"; };
 		D599DEC02A95C327009D7CF6 /* iSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				C663ACEE2AD369CE008F46B4 /* iScheduleTests.swift */,
+				C663ACF52AD36B4C008F46B4 /* ModelTests.swift */,
 			);
 			path = iScheduleTests;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C663ACEF2AD369CE008F46B4 /* iScheduleTests.swift in Sources */,
+				C663ACF62AD36B4C008F46B4 /* ModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
