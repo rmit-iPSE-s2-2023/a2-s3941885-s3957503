@@ -6,6 +6,8 @@
 //
 
 import XCTest
+@testable import iSchedule
+
 
 final class ModelTests: XCTestCase {
 
