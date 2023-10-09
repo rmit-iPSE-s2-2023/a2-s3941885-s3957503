@@ -1,5 +1,5 @@
 import SwiftUI
-
+//Reference: "Build Pie Charts in SwiftUI", Nazar Ilamanov, Published in Better Programming
 struct PieView: View {
     var slices: [(Double, Color)]
     var body: some View {
