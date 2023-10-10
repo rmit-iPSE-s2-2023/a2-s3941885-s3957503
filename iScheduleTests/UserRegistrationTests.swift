@@ -73,5 +73,26 @@ final class UserRegistrationTest: XCTestCase {
         // If password and confirmPassword fields match then the matchPassword() function will return true and the test will pass.
         XCTAssertTrue(passwordsMatch, "Password and confirm password fields are NOT matching")
     }
+    
+    
+    //Unit Test 04
+    
+    func testIsEmailValid(){
+        //Creating instance of UserRegistrationViewModel
+        let userRegistrationModel = UserRegisterViewModel()
+        //Assigning a demo email to email field in order to check email validation function.
+        userRegistrationModel.email = "iossoftware@gmail.com"
+        
+        // Checking if the entered email is a valid email (gmail...)
+        //If the email is valid, isEmailValid() function will return true
+        let emailValidation = userRegistrationModel.isEmailValid()
+        
+        // Print the result of isEmailValid is (True OR False)
+        //The result should be True, because it is a valid email.
+        print("Is email valid: \(emailValidation)")
+        
+        // Assert
+        XCTAssertTrue(emailValidation, "Provided email is NOT valid.")
+    }
 
 }
