@@ -9,7 +9,8 @@ import XCTest
 @testable import iSchedule
 
 final class UserRegistrationTest: XCTestCase {
-
+    
+    //Unit Test 01
     func testIsPasswordValid() {
         //Creating instance of UserRegistrationViewModel
         let userRegistrationModel = UserRegisterViewModel()
@@ -32,7 +33,7 @@ final class UserRegistrationTest: XCTestCase {
         XCTAssertTrue(isValidPassword, "Password is NOT valid. Password should Contain (Uppercase, lowercanse and password must be >=8).")
     }
     
-    //Unit Test02
+    //Unit Test 02
     
     func testInvalidPassword(){
         //Creating instance of UserRegistrationViewModel
@@ -53,6 +54,24 @@ final class UserRegistrationTest: XCTestCase {
         // If the password is valid and isPasswordValid returns true, then the test will pass.
         // Otherwise, the test will fail and show a message that entered password is incorrect.
         XCTAssertTrue(isValidPassword, "Password is NOT valid. Password should Contain (Uppercase, lowercanse and password must be >=8).")
+    }
+    
+    //Unit Test 03
+    
+    func testMatchPasswords(){
+        //Creating instance of UserRegistrationViewModel
+        let userRegistrationModel = UserRegisterViewModel()
+        
+        //Assigning a password to password and confirmPassword fields
+        userRegistrationModel.password = "Password348"
+        userRegistrationModel.confirmPassword = "Password348"
+        
+        
+        // If password and confirmPassword fields match then it will return true.
+        let passwordsMatch = userRegistrationModel.matchPassword()
+        
+        // If password and confirmPassword fields match then the matchPassword() function will return true and the test will pass.
+        XCTAssertTrue(passwordsMatch, "Password and confirm password fields are NOT matching")
     }
 
 }
