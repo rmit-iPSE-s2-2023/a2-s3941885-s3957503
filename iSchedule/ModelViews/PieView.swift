@@ -1,7 +1,9 @@
-import SwiftUI
 //Reference: "Build Pie Charts in SwiftUI", Nazar Ilamanov, Published in Better Programming
+import SwiftUI
+
 struct PieView: View {
     var slices: [(Double, Color)]
+    
     var body: some View {
         ZStack {
             ForEach(0..<slices.count, id: \.self) { idx in

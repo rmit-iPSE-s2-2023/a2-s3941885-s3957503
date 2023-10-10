@@ -1,31 +1,34 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @State private var selectedTab = 0
+    @State var selectedTab = "house.fill"
+    @Namespace var animation
+    @State var xAxis: CGFloat = 0
 
     var body: some View {
-        TabView(selection: $selectedTab) {
-            // Home Tab (ListView)
-            NavigationView {
-                ListView()
+        ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
+            // Switch views based on selectedTab
+            switch selectedTab {
+            case "house.fill":
+                NavigationView {
+                    ListView()
+                }
+                
+            case "chart.bar.fill":
+                NavigationView {
+                    StatisticView()
+                }
+                
+            default:
+                NavigationView {
+                    ListView()
+                }
             }
             
-            .tabItem {
-                Image(systemName: "house.fill")
-                Text("Home")
-            }
-            .tag(0)
-            
-            // Profile Tab (ProfileView)
-            NavigationView {
-                StatisticView()
-            }
-            .tabItem {
-                Image(systemName: "chart.bar.fill")
-                Text("Statistics")
-            }
-            .tag(1)
+            // Use the CustomTabBar from your Home view
+            CustomTabBar(selectedTab: $selectedTab, xAxis: $xAxis, animation: animation)
         }
+        .ignoresSafeArea()
     }
 }
 
@@ -37,3 +40,4 @@ struct MainTabView_Previews: PreviewProvider {
             .environment(\.managedObjectContext, context)
     }
 }
+

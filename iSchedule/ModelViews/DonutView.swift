@@ -1,7 +1,7 @@
+//Reference: "Build Pie Charts in SwiftUI", Nazar Ilamanov, Published in Better Programming
 import SwiftUI
 struct DonutView: View {
     var slices: [(Double, Color)]
-    
     var body: some View {
         Canvas { context, size in
             let donut = Path { p in
