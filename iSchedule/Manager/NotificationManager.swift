@@ -10,7 +10,7 @@ import UserNotifications
 
 class NotficationManager{
     
-    static func sheduleAlert(taskName: String, selectedDate: Date, selectedTime: Date, selectedAlertOption: String){
+    static func scheduleAlert(taskName: String, selectedDate: Date, selectedTime: Date, selectedAlertOption: String){
         
         //Accessing to the content of UserNotification framework in SwiftUI to set content of the notification.
         let content = UNMutableNotificationContent()

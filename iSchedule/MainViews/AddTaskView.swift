@@ -113,7 +113,7 @@ struct AddTaskView: View {
             print("Task saved successfully.")
             if selectedAlertOption != "None" {
                 // Call the NotificationManager to schedule the notification
-                NotficationManager.sheduleAlert(taskName: taskName, selectedDate: selectDate, selectedTime: selectTime, selectedAlertOption: selectedAlertOption)
+                NotficationManager.scheduleAlert(taskName: taskName, selectedDate: selectDate, selectedTime: selectTime, selectedAlertOption: selectedAlertOption)
             }
         } catch {
             print("Error saving task: \(error.localizedDescription)")
