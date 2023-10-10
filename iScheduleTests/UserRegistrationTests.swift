@@ -96,8 +96,8 @@ final class UserRegistrationTest: XCTestCase {
         XCTAssertTrue(emailValidation, "Provided email is NOT valid.")
     }
     
-        //Unit Test 05
-        
+    //Unit Test 05
+    
     func testInValidEmail(){
         //Creating instance of UserRegistrationViewModel
         let userRegistrationModel = UserRegisterViewModel()
@@ -117,5 +117,42 @@ final class UserRegistrationTest: XCTestCase {
         // Otherwise, the test will fail and show a message that entered email is correct.
         XCTAssertFalse(isValid, "Provided email is valid.")
     }
+    
+    // Unit Test 06
+    
+    func testRetrievingCredentials() {
+        
+        //Creating an instance of UserRegistrationViewModel
+        let userRegistrationModel = UserRegisterViewModel()
+        //Creating an instance of KeyChainManager to save and retrive credentials.
+        let keychainManager = KeychainManager()
+        
+        //Saving Credentials.
+        userRegistrationModel.saveCredentials(email: "iossoftware@gmail.com", password: "Password347")
+        
+        
+        //Retrieving email.
+        let email = "iossoftware@gmail.com"
+        //Retrieving password.
+        let password = "Password347"
 
+        do {
+            //Calling KeychainManager retrieveCredential function to retrieve email and password.
+            let retrievedCredentials = try keychainManager.retrieveCredentials()
+            
+            //If email and password are correct, the test will pass.
+            //If email/password does not exist or email/password incorrect, the test will fail and show an error.
+            XCTAssertEqual(retrievedCredentials.username, email, "Email does not exist, please enter a valid email.")
+            XCTAssertEqual(retrievedCredentials.password, password, "Incorrect password, please try again.")
+        } catch {
+            //Getting errors.
+            XCTFail("Error in retrieving credentials: \(error)")
+        }
+    }
+    
+    // Unit Test 07
+    
+    
+    
+    
 }
