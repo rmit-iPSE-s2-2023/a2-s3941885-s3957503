@@ -91,7 +91,8 @@ final class UserRegistrationTest: XCTestCase {
         //The result should be True, because it is a valid email.
         print("Is email valid: \(emailValidation)")
         
-        // Assert
+        // If the email is valid and isEmailValid returns true, then the test will pass.
+        // Otherwise, the test will fail and show a message that entered email is incorrect.
         XCTAssertTrue(emailValidation, "Provided email is NOT valid.")
     }
 
