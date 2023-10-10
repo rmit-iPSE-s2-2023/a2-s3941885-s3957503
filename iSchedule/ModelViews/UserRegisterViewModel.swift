@@ -16,13 +16,7 @@ class UserRegisterViewModel: ObservableObject {
     @Published var confirmPassword = ""
     
     
-    func matchPassword() -> Bool {
-        if password == confirmPassword {
-            print("Password matched")
-            return true
-        }
-        return false
-    }
+
     
     func isPasswordValid() -> Bool {
         // https://regexlib.com/
@@ -38,6 +32,14 @@ class UserRegisterViewModel: ObservableObject {
         else {
             return false
         }
+    }
+    
+    func matchPassword() -> Bool {
+        if isPasswordValid() && password == confirmPassword {
+            print("Password matched")
+            return true
+        }
+        return false
     }
     
     func isEmailValid() -> Bool {
