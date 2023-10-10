@@ -95,5 +95,27 @@ final class UserRegistrationTest: XCTestCase {
         // Otherwise, the test will fail and show a message that entered email is incorrect.
         XCTAssertTrue(emailValidation, "Provided email is NOT valid.")
     }
+    
+        //Unit Test 05
+        
+    func testInValidEmail(){
+        //Creating instance of UserRegistrationViewModel
+        let userRegistrationModel = UserRegisterViewModel()
+        //Assigning a string to email field in order to check email validation function.
+        userRegistrationModel.email = "iossoftware"
+        
+        
+        // Checking if the entered email is a valid email (gmail...)
+        //If the email is valid, isEmailValid() function will return true
+        let isValid = userRegistrationModel.isEmailValid()
+        
+        // Print the result of isEmailValid is (True OR False)
+        //The result should be false, because the input is just a string and it is not a valid email.
+        print("Is email valid: \(isValid)")
+        
+        // If the email is not valid and isEmailValid returns false, then the test will pass.
+        // Otherwise, the test will fail and show a message that entered email is correct.
+        XCTAssertFalse(isValid, "Provided email is valid.")
+    }
 
 }
