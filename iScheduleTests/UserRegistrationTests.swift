@@ -206,6 +206,29 @@ final class UserRegistrationTest: XCTestCase {
         XCTAssertTrue(hasProcessCompleted, "Incorrect username OR password, please try again.")
     }
     
+    // Unit Test 10
+    
+    func testRegistrationNOTCompleted(){
+        //Creating an instance of UserRegistrationViewModel
+        let userRegistrationModel = UserRegisterViewModel()
+        //Assigning an email to email field
+        userRegistrationModel.email = "iossoftware"
+        //Assigning password and confirm password to UserRegistration Model
+        userRegistrationModel.password = "Pass"
+        userRegistrationModel.confirmPassword = "Pass"
+        
+        //Calling isRegistrationComplete function.
+        let hasProcessCompleted = userRegistrationModel.isRegistrationComplete()
+        
+        // Print the result of isRegistrationComplete() (True OR False)
+        print("Process Status: \(hasProcessCompleted)")
+        
+        // Checking if email, password, and confirmPassword are valid and
+        // isPassword(), matchPassword(), and isEmailValid function return true, the test will pass.
+        //Otherwise, isRegistrationComplete method will return false, and test will fail.
+        XCTAssertFalse(hasProcessCompleted, "correct username OR password, please try again.")
+    }
+    
     
     
     
