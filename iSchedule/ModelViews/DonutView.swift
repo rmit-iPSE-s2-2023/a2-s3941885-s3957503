@@ -2,7 +2,7 @@ import SwiftUI
 /**
  A view that visually represents a donut (or pie) chart. Each slice of the donut is represented by a tuple containing a value and a color. The view dynamically generates the donut slices based on the provided data.
  
- Usage:
+ ## Usage:
  To use this view, initialize it with the slices array. For instance:
  ```swift
  DonutView(slices: [(0.25, Color.red), (0.5, Color.green), (0.25, Color.blue)])
@@ -10,16 +10,11 @@ import SwiftUI
  
  The primary use case of this view is to visually display proportional data, where each segment represents a portion of the whole. In this case: the amount of tasks is in a list of the database and how they are distributed.
 
- Features:
+ ## Features:
  - Accepts an array of slices where each slice contains a value and a color.
  - Adjusts the size of each slice based on the value it represents.
  - Displays a gap between slices when a specific condition is met (e.g., for "inProgress" tasks).
 
- Properties:
- - `slices`: An array of tuples where each tuple consists of a `Double` representing the value of the slice and a `Color` representing the color of the slice.
-
- Note:
- This was referenced from "Build Pie Charts in SwiftUI", Nazar Ilamanov, Published in Better Programming. The implementation of this view relies on the SwiftUI Canvas to draw the slices, which provides more flexibility compared to using basic shapes. Furthermore, the logic to compute the starting and ending angles of each slice ensures that the slices are proportionally sized based on their values.
  ```swift
  struct DonutView: View {
      var slices: [(Double, Color)]
@@ -57,6 +52,9 @@ import SwiftUI
          .aspectRatio(1, contentMode: .fit)
      }
  }
+ ```
+ ## Note:
+ This was referenced from "Build Pie Charts in SwiftUI", Nazar Ilamanov, Published in Better Programming. The implementation of this view relies on the SwiftUI Canvas to draw the slices, which provides more flexibility compared to using basic shapes. Furthermore, the logic to compute the starting and ending angles of each slice ensures that the slices are proportionally sized based on their values.
  */
 
 struct DonutView: View {

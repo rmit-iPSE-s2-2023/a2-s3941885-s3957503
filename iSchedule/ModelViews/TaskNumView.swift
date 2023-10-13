@@ -7,13 +7,13 @@ A view designed to represent the number of tasks in a specified category with a 
  - The name of the task category (e.g., "In Progress").
  - The total number of tasks in the specified category.
  
- Properties:
+ ## Properties:
  - `taskCategory`: A `String` representing the name of the task category. Default is "In progress".
  - `iconName`: A `String` representing the system name of the icon for the task category. Default is "checklist".
  - `iconBackgroundColor`: A `Color` representing the background color of the icon. Default is a shade of blue.
  - `numberOfTasks`: An `Int` representing the total number of tasks in the specified category. Default is 0.
  
- Usage:
+ ## Usage:
     Initialize the view by providing the necessary properties. For instance:
 ```swift
 TaskNumView(taskCategory: "Completed", iconName: "checkmark", iconBackgroundColor: .green, numberOfTasks: 5)

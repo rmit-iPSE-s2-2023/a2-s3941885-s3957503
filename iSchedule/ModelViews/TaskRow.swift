@@ -2,20 +2,20 @@ import SwiftUI
 /**
 A view designed to present a single task in a to-do list. It provides functionalities such as editing task details, viewing task description, and toggling task completion.
 
- Usage:
+ ##Usage:
  Initialize the view by providing a task object. For instance:
  ```swift
  TaskRow(task: someTaskObject)
  ```
  
- Features:
+ ##Features:
  - Represents the task's title and due date-time.
  - Interactive toggle to mark the task as completed or in-progress.
  - Double-tap feature to change the priority of the task.
  - Editable due date-time through a long-press gesture.
  - Expandable task description on a single tap.
  
- Properties:
+ ##Properties:
  - `task`: An `ObservedObject` of type `Task` representing the task to display.
  - `viewContext`: The managed object context to perform CoreData operations.
  - `isExpanded`: A `State` boolean variable for toggling task description view expansion.

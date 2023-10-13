@@ -2,8 +2,9 @@ import SwiftUI
 import CoreData
 import UserNotifications
 /**
-A view that offers a form-based interface to add new tasks. The new task can then be saved into the associated `TaskList`.
+ `AddTaskView` provides a form-based interface to add new tasks to a specific `TaskList`. Users can specify various task details, including the task title, due date and time, priority, notification options, and an optional description.
 
+ ## Overview:
  When the user navigates to this view, they can specify:
  - Task Title
  - Task Due Date and Time
@@ -11,13 +12,15 @@ A view that offers a form-based interface to add new tasks. The new task can the
  - Notification options to alert the user of upcoming tasks.
  - Task Description (optional)
  
-
-Note:
-- This view expects an instance of `TaskList` during its initialization.
-- The new task will be linked to this provided task list upon saving.
-- Users are only able to save the task if the title is provided.
-- The save action also manages the scheduling of notifications based on the user's selected alert option.
+ ## Usage:
+ To use AddTaskView, you can simply add it within a NavigationView for proper navigation:
+ ```swift
+ NavigationView {
+     AddTaskView()
+ }
+```
  
+ ## Body:
  ```swift
  var body: some View {
      Form {
@@ -63,10 +66,6 @@ Note:
          presentationMode.wrappedValue.dismiss()
      }, label: { Text("Save") }).disabled(!isFormComplete))
      .onAppear{
-         /*
-          Using User Notification framework in SwiftUI to request displaying notification on the screen
-          Requesting options [alert, sound, and badge].
-         */
          UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]){
              allowed, error in
              
@@ -77,6 +76,14 @@ Note:
      }
      .navigationTitle(Text("Add Task"))
  }
+ 
+ ## Notes:
+ - TaskList Instance: When initializing AddTaskView, you must provide an instance of TaskList. The new task will be linked to this provided task list upon saving.
+ - Form Validation: Users can only save the task if the title has been provided. The Save button is disabled until the title is filled out.
+ - Date and Time Combining: The view combines the selected due date and due time into a single Date object to represent the full due date and time of the task.
+ - Notification Authorization: When the view appears, it requests permission from the user to show notifications. This is handled using the UserNotifications framework. If the user denies permission, notifications will not be scheduled.
+ - Saving and Notifications: Upon tapping the Save button, the task details are saved to the provided TaskList. If the user has chosen an alert option, a notification for the task will also be scheduled based on the selected alert time.
+ - Custom Notification Scheduling: The notification scheduling logic, represented by the NotificationManager.scheduleAlert function, is assumed to be in another class or module called NotificationManager. Ensure that this function is correctly defined elsewhere to handle the scheduling of notifications.
  */
 struct AddTaskView: View {
     @Environment(\.managedObjectContext) private var viewContext

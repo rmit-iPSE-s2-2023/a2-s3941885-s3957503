@@ -9,22 +9,18 @@ import CoreData
   - **Interactions:** Allows for text input to change the name, and color selection through a horizontal color palette.
   - **Save Mechanism:** Uses a "Save" button on the navigation bar to persist any changes made.
 
-  ## Properties:
-  - `existingList`: The `TaskList` instance that the user is currently editing.
-  - `listName`: A `State` property that holds the name of the list and provides a two-way binding for the TextField.
-  - `selectedColor`: A `State` property that holds the selected color for the list. It is shown as the background of the text field and is selectable from a set of predefined colors.
-  - `colors`: An array of available colors that users can choose from.
-
-  ## Functions:
-  - `updateList()`: A private function responsible for saving changes to the `TaskList` and then dismissing the view.
-  - `colorFromString(_:)`: A utility function that converts a string representation of a color to its `Color` equivalent.
-
+ ## Usage:
+ To utilize the `ListSettingsView`, provide an instance of `TaskList` during initialization. This view will then display the current details of the list, allowing the user to edit as necessary.
+ ```swift
+ let taskList: TaskList = // Fetch or get your TaskList instance from Core Data
+ ListSettingsView(existingList: taskList)
+ ```
+ 
   ## Body:
   The view's body is composed mainly of a `Form` that has:
   - A `TextField` for the list name.
   - A descriptive text guiding users to choose a color.
   - A horizontally scrollable list of color options.
- 
  ```swift
  var body: some View {
      Form {

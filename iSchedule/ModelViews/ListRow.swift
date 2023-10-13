@@ -11,17 +11,6 @@ import SwiftUI
  })
 ```
  
- Properties:
- - `taskList`: A task list object that is to be displayed on this row. The structure/type definition of `TaskList` should be provided by the user.
- - `onDelete`: A closure that will be invoked when the deletion is confirmed.
-   
- State:
- - `offset`: A state variable controlling the horizontal offset of the main content, used for revealing the delete button.
- - `showingDeletionAlert`: A Boolean state variable that controls whether the deletion confirmation alert is presented or not.
-
- Note:
- This view is dependent on the CoreData entity TaskList and its related attributes. It also relies on an external view, ListSettingsView, to manage task settings.
- 
  ```swift
  var body: some View {
      ZStack {
@@ -71,6 +60,9 @@ import SwiftUI
          )
      }
  }
+ 
+ ## Note:
+ This view is dependent on the CoreData entity TaskList and its related attributes. It also relies on an external view, ListSettingsView, to manage task settings.
  */
 struct ListRow: View {
     var taskList: TaskList

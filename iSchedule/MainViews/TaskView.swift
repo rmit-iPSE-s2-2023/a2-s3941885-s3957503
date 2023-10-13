@@ -2,30 +2,9 @@ import SwiftUI
 import CoreData
 
 /**
- `TaskView` represents the primary view for displaying and managing tasks related to a specific `TaskList`.
+ `TaskView` represents the primary view for displaying and managing tasks related to a specific `TaskList`. It fetches the `Task` entities from Core Data.
  
- ## Usage:
- - Use `TaskView(taskList: someTaskList)` to create a view instance where `someTaskList` is an instance of `TaskList`.
- - Embed this view within a navigation view to utilize navigation-based features
- ```swift
- NavigationView { TaskView(taskList: someTaskList) }
- ```
- 
- ## Properties:
- - `selectedStatus`: Represents the selected task's status for filtering the task list.
- - `viewContext`: The Core Data context used to manage the persisted data.
- - `refreshID`: A unique ID used to refresh the view, especially after data manipulations.
- - `searchText`: Bindable property for the search bar text, used to filter tasks by title.
- - `selectedSortOption`: Represents the selected sort option for tasks.
- - `showingExtendOptions`: A boolean that determines if the options for extending task time are visible.
- - `selectedTaskToExtend`: Represents the task that the user might choose to extend its due time.
- - `sortByDate`: Determines if tasks should be sorted by their due date.
- - `sortByPriority`: Determines if tasks should be sorted by their priority.
- - `selectedTaskList`: The specific `TaskList` instance that tasks are associated with.
- - `fetchRequest`: Fetch request for tasks related to the provided `TaskList`.
- - `extendOptions`: Dictionary holding time intervals for possible extend options for task's due time.
- 
- ## Description:
+ ## Overview:
  - Filter & display tasks based on their status (In Progress, Completed, All).
  - Provides a search bar to search for tasks by their title.
  - Enables sorting of tasks by date and/or priority.
@@ -36,14 +15,14 @@ import CoreData
  - Swipe action on a `TaskRow` (from right to left) deletes the task.
  - "Add Task" button on the navigation bar redirects to `AddTaskView`.
  
- ## Note:
- - The view expects an instance of `TaskList` during initialization.
- - Loads and displays tasks associated with the provided task list.
- - The color of the gearshape circle in a `TaskRow` is dependent on the task's priority: green (low), orange (medium), red (high).
- 
- ## Subviews:
- - `SearchBarView`: A custom view that provides search bar functionality. It takes a bindable `searchText` property to filter tasks.
- - `ButtonToggleView`: A custom toggle button view used in the sorting menu.
+ ## Usage:
+ - Use `TaskView(taskList: someTaskList)` to create a view instance where `someTaskList` is an instance of `TaskList`.
+ - Embed this view within a navigation view to utilize navigation-based features
+ ```swift
+ NavigationView {
+    TaskView(taskList: someTaskList)
+ }
+ ```
  
  ## Body:
  The main body of the `TaskView` comprises:
@@ -120,7 +99,7 @@ import CoreData
  - The color of the gearshape circle in a `TaskRow` is dependent on the task's priority: green (low), orange (medium), red (high).
  */
 struct TaskView: View {
-    /// Represents the selected task's status for filtering the task list.
+        /// Represents the selected task's status for filtering the task list.
         @State private var selectedStatus: Status = .inProgress
         
         /// The Core Data context used to manage the persisted data.

@@ -4,22 +4,11 @@ import SwiftUI
 
  The tab bar displays a set of icons that the user can tap to switch between different views or sections of the app. The currently selected tab's icon animates upward slightly and changes color for differentiation.
 
- Usage:
+ ##Usage:
  ```swift
  CustomTabBar(selectedTab: $currentTab, xAxis: $currentXAxis, animation: namespace)
 ```
  
- Properties:
- - `selectedTab`: A binding to a string that represents the currently selected tab. Its value corresponds to the system name of the icon representing the tab.
- - `xAxis`: A binding to a CGFloat value representing the x-axis position of the currently selected tab icon.
- - `animation`: A namespace ID used for the `matchedGeometryEffect` modifier, allowing for smooth animations during tab transitions.
- - `tabs`: An array containing the system names of the icons to be displayed on the tab bar.
-
- Note:
- - This implementation was referenced from 'https://github.com/Mobile-Apps-Academy/TabBarSwiftUI/blob/main/TabBar.swift'
- - The CustomTabBarShape is responsible for creating the visual effect where the selected tab appears to "rise" from the tab bar.
- - Customize the getIconColor(image:) function to define unique colors for other icons.
- - Ensure the necessary namespace is provided for the matchedGeometryEffect to work.
 ```swift
  var body: some View {
      VStack(alignment: .center) {
@@ -61,6 +50,13 @@ import SwiftUI
      .frame(maxWidth: .infinity)
      .background(Color.white.clipShape(CustomTabBarShape(xAxis: xAxis)))
  }
+ ```
+ 
+ ## Notes:
+ - This implementation was referenced from 'https://github.com/Mobile-Apps-Academy/TabBarSwiftUI/blob/main/TabBar.swift'
+ - The CustomTabBarShape is responsible for creating the visual effect where the selected tab appears to "rise" from the tab bar.
+ - Customize the getIconColor(image:) function to define unique colors for other icons.
+ - Ensure the necessary namespace is provided for the matchedGeometryEffect to work.
  */
 struct CustomTabBar: View {
     @Binding var selectedTab: String

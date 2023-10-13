@@ -2,7 +2,7 @@ import SwiftUI
 /**
 A custom toggle style designed to display a checkbox.
 
- Usage:
+ ## Usage:
  To use this style with a toggle, apply the .toggleStyle(CheckboxToggleStyle()) modifier.
  For instance:
  ```swift

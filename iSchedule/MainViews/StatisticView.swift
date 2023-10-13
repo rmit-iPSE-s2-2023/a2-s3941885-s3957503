@@ -1,16 +1,33 @@
 import SwiftUI
 import CoreData
 /**
-A view presenting statistics on all lists tasks using pie charts, as well as having a view that fetches motivational quotes from an API.
+ `StatisticView` statistics on all lists tasks using pie charts, as well as having a view that fetches motivational quotes from an API.
  
- This view provides:
- - A pie chart representing the number of tasks in a selected list categorized by status.
- - A donut chart representing the distribution of tasks across various lists.
+ ## Overview:
+ - Pie Chart: Represents the number of tasks in a selected list, categorized by status ("In Progress" or "Completed"). It's associated with two textual statistics, which respectively show the number of tasks "In Progress" and "Completed".
+ - Donut Chart: Represents the distribution of tasks across various lists, provided with an accompanying textual breakdown that includes each list's name, the number of tasks within, and the percentage of total tasks it represents.
  - Filters to select a specific list or filter by task status.
  - Detailed breakdown of tasks in different lists with associated percentages.
 
- Note: The statistics and charts are generated based on the fetched data from the CoreData context.
+ ## Usage:
+ To integrate the `StatisticView` into a SwiftUI view, use:
+ ```swift
+ StatisticView().environment(\.managedObjectContext, context)
+ ```
  
+ ## Body:
+ The body of the StatisticView contains two main sections:
+ 1. Task Status Section: This section contains:
+ - A title indicating it represents the number of tasks in the selected list.
+ - A dropdown menu allowing the user to filter tasks by list.
+ - A visual representation of the number of tasks "In Progress" and "Completed".
+ - A pie chart that visually represents the distribution of tasks by status.
+ - The percentage of tasks that are completed.
+ 2. Total Task Amount Section: This section contains:
+ - A title indicating it represents the total number of tasks.
+ - A segmented control allowing the user to filter tasks by their status.
+ - A donut chart that visually represents the distribution of tasks across various lists.
+ - A breakdown of each list, the number of tasks in that list, and the associated percentage with respect to the total task count.
  ```swift
  var body: some View {
      VStack {
@@ -115,6 +132,12 @@ A view presenting statistics on all lists tasks using pie charts, as well as hav
      }
      .navigationTitle("Statistics")
  }
+ ```
+ 
+ ## Notes:
+ - The statistics and charts are generated based on the fetched data from the CoreData context.
+ - The pie and donut charts are color-coded based on the status of tasks or the colors associated with the task lists.
+ 
  */
 struct StatisticView: View {
     @Environment(\.managedObjectContext) private var viewContext
