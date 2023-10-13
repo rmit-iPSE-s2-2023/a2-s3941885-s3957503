@@ -1,6 +1,121 @@
 import SwiftUI
 import CoreData
+/**
+A view presenting statistics on all lists tasks using pie charts, as well as having a view that fetches motivational quotes from an API.
+ 
+ This view provides:
+ - A pie chart representing the number of tasks in a selected list categorized by status.
+ - A donut chart representing the distribution of tasks across various lists.
+ - Filters to select a specific list or filter by task status.
+ - Detailed breakdown of tasks in different lists with associated percentages.
 
+ Note: The statistics and charts are generated based on the fetched data from the CoreData context.
+ 
+ ```swift
+ var body: some View {
+     VStack {
+         Text("Amount of tasks in the selected list")
+             .font(.title2)
+             .fontWeight(.semibold)
+             .foregroundColor(Color.primary)
+             .frame(maxWidth: .infinity, alignment: .leading)
+             .padding(.leading)
+         VStack {
+             //First Piechart
+             HStack(alignment: .center, spacing: 8) {
+                 Image(systemName: "line.horizontal.3.decrease.circle")
+                     .resizable()
+                     .scaledToFit()
+                     .frame(width: 18, height: 18)
+                     .foregroundColor(.blue)
+                 //Filter to know the amount of tasks in a specific list
+                 Picker("Filter", selection: $selectedFilter) {
+                     Text("All").tag(nil as TaskList?)
+                     ForEach(allLists, id: \.self) { list in
+                         Text(list.name ?? "").tag(list as TaskList?)
+                     }
+                 }
+                 .pickerStyle(MenuPickerStyle())
+                 .frame(width: 200, height: 30)
+                 .font(Font.system(size: 14, weight: .medium))
+                 .padding(.vertical, 4)
+                 .background(Color.white)
+                 .cornerRadius(6)
+                 .shadow(color: Color.black.opacity(0.1), radius: 2, x: 0, y: 1)
+             }
+             
+             HStack {
+                 VStack {
+                     //Displays for the amount of tasks in inprogress and completed
+                     TaskNumView(taskCategory: "In Progress", iconName: "checklist", iconBackgroundColor: Color.blue, numberOfTasks: inProgressTasks.count)
+                     TaskNumView(taskCategory: "Completed", iconName: "checklist", iconBackgroundColor: Color.orange, numberOfTasks: completedTasks.count)
+                 }
+                 
+                 ZStack {
+                     PieView(slices: taskStatusPieSlices)
+                         .frame(width: 150, height: 150)
+                         .padding()
+                     let completedPercentage = (inProgressTasks.count + completedTasks.count) == 0 ? 0 : Double(completedTasks.count) / Double(inProgressTasks.count + completedTasks.count)
+                     Text("\(Int(completedPercentage * 100))% Completed")
+                         .font(Font.system(size: 18))
+                         .foregroundColor(.white)
+                 }
+             }
+         }
+         .padding([.horizontal], 15)
+         .padding(.bottom, 16)
+         .background(Color(.secondarySystemBackground))
+         .cornerRadius(10)
+         .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
+         
+         Text("Total amount of tasks")
+             .font(.title2)
+             .fontWeight(.semibold)
+             .foregroundColor(Color.primary)
+             .frame(maxWidth: .infinity, alignment: .leading)
+             .padding(.leading)
+         VStack {
+             Picker("Task Status", selection: $taskStatusFilter) {
+                 Text("In Progress").tag("In Progress")
+                 Text("Completed").tag("Completed")
+             }
+             .pickerStyle(SegmentedPickerStyle())
+             HStack {
+                 //Second Piechart
+                 DonutView(slices: listPieSlices)
+                     .frame(width: 120, height: 120)
+                     .padding()
+                 VStack {
+                     let totalTasksCount = Double(filteredTasksForPieChart.values.flatMap { $0 }.count)
+                     //Fetch all lists and the tasks within it
+                     ForEach(allListsForListPie, id: \.self) { list in
+                         if let tasks = filteredTasksForPieChart[list], !tasks.isEmpty {
+                             let listPercentage = (Double(tasks.count) / totalTasksCount) * 100
+                             
+                             HStack {
+                                 Circle()
+                                     .fill(colorFromString(list.colorString))
+                                     .frame(width: 10, height: 10)
+                                 //Display the amount of the tasks in a list and how much percentage the list weighs in the total amount
+                                 Text("\(list.name ?? ""): \(tasks.count) (\(String(format: "%.1f", listPercentage))%)")
+                                     .font(.footnote)
+                             }
+                         }
+                     }
+                     
+                 }
+             }
+         }
+         .padding([.horizontal], 15)
+         .padding(.bottom, 16)
+         .background(Color(.secondarySystemBackground))
+         .cornerRadius(10)
+         .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
+         Spacer()
+     }
+     .navigationTitle("Statistics")
+ }
+ */
 struct StatisticView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
@@ -145,13 +260,14 @@ struct StatisticView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading)
             VStack {
+                //First Piechart
                 HStack(alignment: .center, spacing: 8) {
                     Image(systemName: "line.horizontal.3.decrease.circle")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 18, height: 18)
                         .foregroundColor(.blue)
-                    
+                    //Filter to know the amount of tasks in a specific list
                     Picker("Filter", selection: $selectedFilter) {
                         Text("All").tag(nil as TaskList?)
                         ForEach(allLists, id: \.self) { list in
@@ -169,6 +285,7 @@ struct StatisticView: View {
                 
                 HStack {
                     VStack {
+                        //Displays for the amount of tasks in inprogress and completed
                         TaskNumView(taskCategory: "In Progress", iconName: "checklist", iconBackgroundColor: Color.blue, numberOfTasks: inProgressTasks.count)
                         TaskNumView(taskCategory: "Completed", iconName: "checklist", iconBackgroundColor: Color.orange, numberOfTasks: completedTasks.count)
                     }
@@ -177,7 +294,6 @@ struct StatisticView: View {
                         PieView(slices: taskStatusPieSlices)
                             .frame(width: 150, height: 150)
                             .padding()
-                        
                         let completedPercentage = (inProgressTasks.count + completedTasks.count) == 0 ? 0 : Double(completedTasks.count) / Double(inProgressTasks.count + completedTasks.count)
                         Text("\(Int(completedPercentage * 100))% Completed")
                             .font(Font.system(size: 18))
@@ -204,12 +320,13 @@ struct StatisticView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 HStack {
+                    //Second Piechart
                     DonutView(slices: listPieSlices)
                         .frame(width: 120, height: 120)
                         .padding()
                     VStack {
                         let totalTasksCount = Double(filteredTasksForPieChart.values.flatMap { $0 }.count)
-                        
+                        //Fetch all lists and the tasks within it
                         ForEach(allListsForListPie, id: \.self) { list in
                             if let tasks = filteredTasksForPieChart[list], !tasks.isEmpty {
                                 let listPercentage = (Double(tasks.count) / totalTasksCount) * 100
@@ -218,6 +335,7 @@ struct StatisticView: View {
                                     Circle()
                                         .fill(colorFromString(list.colorString))
                                         .frame(width: 10, height: 10)
+                                    //Display the amount of the tasks in a list and how much percentage the list weighs in the total amount
                                     Text("\(list.name ?? ""): \(tasks.count) (\(String(format: "%.1f", listPercentage))%)")
                                         .font(.footnote)
                                 }
@@ -226,17 +344,12 @@ struct StatisticView: View {
                         
                     }
                 }
-                
-                
             }
             .padding([.horizontal], 15)
             .padding(.bottom, 16)
             .background(Color(.secondarySystemBackground))
             .cornerRadius(10)
             .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
-            
-            
-            
             Spacer()
         }
         .navigationTitle("Statistics")

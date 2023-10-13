@@ -20,10 +20,11 @@
 		2B0286452AD56C96008DE955 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0286442AD56C96008DE955 /* CustomTabBar.swift */; };
 		2B0701352AD00FF8004F962A /* ButtonToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0701342AD00FF8004F962A /* ButtonToggleView.swift */; };
 		2B07013B2AD032DB004F962A /* DonutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B07013A2AD032DB004F962A /* DonutView.swift */; };
+		2B105E4C2AD7A0A900CACDBA /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B105E4B2AD7A0A900CACDBA /* CheckboxToggleStyle.swift */; };
 		2B3B645B2AD1293C005AF956 /* StatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B645A2AD1293C005AF956 /* StatisticView.swift */; };
 		2B3B645D2AD12B02005AF956 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B645C2AD12B02005AF956 /* MainTabView.swift */; };
 		2B3B645F2AD2671E005AF956 /* PieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3B645E2AD2671E005AF956 /* PieView.swift */; };
-		2B70601A2ACC24DE0067CD7C /* DeleteListGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7060192ACC24DE0067CD7C /* DeleteListGesture.swift */; };
+		2B70601A2ACC24DE0067CD7C /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7060192ACC24DE0067CD7C /* ListRow.swift */; };
 		2B70601C2ACC25040067CD7C /* DeleteTaskRowGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B70601B2ACC25040067CD7C /* DeleteTaskRowGesture.swift */; };
 		2BBB63892ABEA0F7001D2EF8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0273912AB8691F007FB8B8 /* CoreDataManager.swift */; };
 		2BE349DA2ACBF9C40001760F /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE349D92ACBF9C40001760F /* SearchBarView.swift */; };
@@ -68,10 +69,11 @@
 		2B0286442AD56C96008DE955 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		2B0701342AD00FF8004F962A /* ButtonToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonToggleView.swift; sourceTree = "<group>"; };
 		2B07013A2AD032DB004F962A /* DonutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutView.swift; sourceTree = "<group>"; };
+		2B105E4B2AD7A0A900CACDBA /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
 		2B3B645A2AD1293C005AF956 /* StatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticView.swift; sourceTree = "<group>"; };
 		2B3B645C2AD12B02005AF956 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		2B3B645E2AD2671E005AF956 /* PieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieView.swift; sourceTree = "<group>"; };
-		2B7060192ACC24DE0067CD7C /* DeleteListGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteListGesture.swift; sourceTree = "<group>"; };
+		2B7060192ACC24DE0067CD7C /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
 		2B70601B2ACC25040067CD7C /* DeleteTaskRowGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTaskRowGesture.swift; sourceTree = "<group>"; };
 		2BE349D92ACBF9C40001760F /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		C60F4DD32ACD1AF500A30988 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -135,11 +137,12 @@
 				2B0273872AB8432B007FB8B8 /* MyListsView.swift */,
 				2BE349D92ACBF9C40001760F /* SearchBarView.swift */,
 				2B07013A2AD032DB004F962A /* DonutView.swift */,
-				2B7060192ACC24DE0067CD7C /* DeleteListGesture.swift */,
+				2B7060192ACC24DE0067CD7C /* ListRow.swift */,
 				2B70601B2ACC25040067CD7C /* DeleteTaskRowGesture.swift */,
 				2B0701342AD00FF8004F962A /* ButtonToggleView.swift */,
 				2B3B645E2AD2671E005AF956 /* PieView.swift */,
 				2B0286442AD56C96008DE955 /* CustomTabBar.swift */,
+				2B105E4B2AD7A0A900CACDBA /* CheckboxToggleStyle.swift */,
 			);
 			path = ModelViews;
 			sourceTree = "<group>";
@@ -350,10 +353,11 @@
 				2B02737E2AB84254007FB8B8 /* ListView.swift in Sources */,
 				2BBB63892ABEA0F7001D2EF8 /* CoreDataManager.swift in Sources */,
 				2B0273892AB8432B007FB8B8 /* TaskRow.swift in Sources */,
+				2B105E4C2AD7A0A900CACDBA /* CheckboxToggleStyle.swift in Sources */,
 				C6A0631F2AC62D090065A466 /* APIManagerView.swift in Sources */,
 				2B70601C2ACC25040067CD7C /* DeleteTaskRowGesture.swift in Sources */,
 				2B02738D2AB8442C007FB8B8 /* iScheduleModel.xcdatamodeld in Sources */,
-				2B70601A2ACC24DE0067CD7C /* DeleteListGesture.swift in Sources */,
+				2B70601A2ACC24DE0067CD7C /* ListRow.swift in Sources */,
 				2B02737D2AB84254007FB8B8 /* AddTaskView.swift in Sources */,
 				2B3B645F2AD2671E005AF956 /* PieView.swift in Sources */,
 				D599DEC42A95C327009D7CF6 /* iScheduleApp.swift in Sources */,

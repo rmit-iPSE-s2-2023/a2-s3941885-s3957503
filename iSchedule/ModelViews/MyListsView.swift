@@ -1,6 +1,74 @@
 import SwiftUI
 import CoreData
 
+/**
+ A view designed to present a single task list in an overview manner. The list is primarily represented by its name and an associated icon, as well as the number of in-progress tasks contained within.
+
+ Usage:
+ Initialize the view by providing a task list object. For instance:
+ ```swift
+ MyListsView(taskList: someTaskListObject)
+```
+ 
+ Features:
+ - Displays the name of the task list.
+ - An associated icon with a background color representative of the list's priority or type.
+ - Shows the number of tasks within the list that are currently marked as "In Progress".
+ - Navigation link to a detailed `TaskView` of the task list.
+ - Navigation link to `ListSettingsView` to edit or manage settings related to the task list.
+
+ Properties:
+ - `taskList`: An `ObservedObject` of type `TaskList` representing the task list to display.
+ - `viewContext`: The managed object context to perform CoreData operations.
+ - `iconName`: The name of the icon that represents the task list. Defaults to "gearshape".
+ - `id`: The unique identifier (`NSManagedObjectID`) for the `TaskList`.
+ 
+ Note:
+ This view is dependent on the CoreData entity TaskList and its associated attributes. It also relies on external views, TaskView and ListSettingsView, for navigation purposes. This view was used as the base for `ListRow` and `TaskRow`.
+ 
+ ```swift
+ var body: some View {
+         HStack {
+             VStack {
+                 NavigationLink(destination: ListSettingsView(existingList: taskList).environment(\.managedObjectContext, self.viewContext)) {
+                     Image(systemName: "\(iconName)")
+                         .frame(width: 35, height: 35)
+                         .background(iconBackgroundColor)
+                         .foregroundColor(.white)
+                         .clipShape(Circle())
+                         .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+                         .font(.system(size: 20))
+                 }
+                 .padding([.leading], 20)
+             }
+
+             VStack(alignment: .center) {
+                 NavigationLink(destination: TaskView(taskList: taskList).environment(\.managedObjectContext, viewContext)) {
+                     Text(taskList.name ?? "")
+                         .padding([.top])
+                         .padding([.bottom], -1)
+                 }
+
+                 Text("\(numOfTasksInList)")
+                     .fontWeight(.bold)
+             }
+             .font(.system(size: 20))
+             .frame(maxWidth: .infinity)
+             .padding([.trailing], 40)
+
+             Spacer()
+         }
+         .frame(width: 400, height: 80)
+         .background(Color.white)
+         .cornerRadius(10)
+         .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+         .padding([.bottom], 7)
+         .onAppear {
+             self.numOfTasksInList = fetchNumberOfTasks()
+         }
+     }
+ }
+ */
 struct MyListsView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State private var numOfTasksInList: Int = 0

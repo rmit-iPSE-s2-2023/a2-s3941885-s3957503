@@ -1,12 +1,88 @@
 import SwiftUI
 import CoreData
 import UserNotifications
+/**
+A view that offers a form-based interface to add new tasks. The new task can then be saved into the associated `TaskList`.
 
+ When the user navigates to this view, they can specify:
+ - Task Title
+ - Task Due Date and Time
+ - Task Priority to categorize task urgency (medium by default).
+ - Notification options to alert the user of upcoming tasks.
+ - Task Description (optional)
+ 
+
+Note:
+- This view expects an instance of `TaskList` during its initialization.
+- The new task will be linked to this provided task list upon saving.
+- Users are only able to save the task if the title is provided.
+- The save action also manages the scheduling of notifications based on the user's selected alert option.
+ 
+ ```swift
+ var body: some View {
+     Form {
+         Section("Task Details") {
+             TextField("Title", text: $taskName)
+                 .frame(height: 45)
+             DatePicker(
+                 "Date",
+                 selection: $selectDate,
+                 displayedComponents: [.date]
+             )
+             DatePicker(
+                 "Time",
+                 selection: $selectTime,
+                 displayedComponents: [.hourAndMinute]
+             )
+             Picker(selection: $selectedPriority, label: Text("Priority")) {
+                 ForEach(TaskPriority.allCases, id: \.self) { priority in
+                     Text(priority.rawValue).tag(priority)
+                 }
+             }
+             .pickerStyle(MenuPickerStyle())
+             .frame(maxWidth: .infinity, alignment: .leading)
+             
+         }
+         Section(header: Text("Notification Options")) {
+             Picker("Set Alert", selection: $selectedAlertOption) {
+                 ForEach(alertOptionsList, id: \.self) { option in
+                     Text(option)
+                 }
+             }
+             .pickerStyle(.menu)
+         }
+         Section("Description") {
+             TextEditor(text: $description)
+                 .clipShape(RoundedRectangle(cornerRadius: 10))
+                 .shadow(radius: 1)
+                 .frame(height: 100)
+         }
+     }
+     .navigationBarItems(trailing: Button(action: {
+         addTask()
+         presentationMode.wrappedValue.dismiss()
+     }, label: { Text("Save") }).disabled(!isFormComplete))
+     .onAppear{
+         /*
+          Using User Notification framework in SwiftUI to request displaying notification on the screen
+          Requesting options [alert, sound, and badge].
+         */
+         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]){
+             allowed, error in
+             
+             //To test whether permission granted or no for showing notification.
+             let permission = allowed ? "Showing notification permitted." : "Notification permission denied."
+             print(permission)
+         }
+     }
+     .navigationTitle(Text("Add Task"))
+ }
+ */
 struct AddTaskView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) var presentationMode
     
-    var selectedList: TaskList  // Initialized when navigating to this view
+    var selectedList: TaskList
     
     @State private var taskName: String = ""
     @State private var description: String = ""
@@ -37,7 +113,6 @@ struct AddTaskView: View {
             Section("Task Details") {
                 TextField("Title", text: $taskName)
                     .frame(height: 45)
-                
                 DatePicker(
                     "Date",
                     selection: $selectDate,
@@ -48,8 +123,6 @@ struct AddTaskView: View {
                     selection: $selectTime,
                     displayedComponents: [.hourAndMinute]
                 )
-                
-                
                 Picker(selection: $selectedPriority, label: Text("Priority")) {
                     ForEach(TaskPriority.allCases, id: \.self) { priority in
                         Text(priority.rawValue).tag(priority)
@@ -59,7 +132,6 @@ struct AddTaskView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
             }
-            
             Section(header: Text("Notification Options")) {
                 Picker("Set Alert", selection: $selectedAlertOption) {
                     ForEach(alertOptionsList, id: \.self) { option in
@@ -68,8 +140,6 @@ struct AddTaskView: View {
                 }
                 .pickerStyle(.menu)
             }
-
-            
             Section("Description") {
                 TextEditor(text: $description)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -121,12 +191,12 @@ struct AddTaskView: View {
     }
 }
 
-// Preview
+
 struct AddTaskView_Previews: PreviewProvider {
     static var previews: some View {
         let persistedContainer = CoreDataManager.shared.persistentContainer
         NavigationView {
-            AddTaskView(selectedList: TaskList())  // Pass a mock TaskList object here for the preview
+            AddTaskView(selectedList: TaskList())
                 .environment(\.managedObjectContext, persistedContainer.viewContext)
         }
     }
