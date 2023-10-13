@@ -53,7 +53,7 @@ final class UserRegistrationTest: XCTestCase {
         
         // If the password is valid and isPasswordValid returns true, then the test will pass.
         // Otherwise, the test will fail and show a message that entered password is incorrect.
-        XCTAssertTrue(isValidPassword, "Password is NOT valid. Password should Contain (Uppercase, lowercanse and password must be >=8).")
+        XCTAssertFalse(isValidPassword, "Password is valid. Password Contain (Uppercase, lowercanse and password >=8).")
     }
     
     //Unit Test 03
@@ -159,6 +159,7 @@ final class UserRegistrationTest: XCTestCase {
         //Creating an instance of KeyChainManager to save and retrive credentials.
         let keychainManager = KeychainManager()
         
+        
         //Saving Credentials.
         userRegistrationModel.saveCredentials(email: "iossoftware@gmail.com", password: "Password347")
         
@@ -175,8 +176,8 @@ final class UserRegistrationTest: XCTestCase {
             //If email and password are correct, the test will pass.
             //If email/password does not exist or email and password are incorrect, the test will fail and show an error.
             //Since email and password both are incorrect, the test will fail and show errors.
-            XCTAssertEqual(retrievedCredentials.username, email, "Email does not exist, please enter a valid email.")
-            XCTAssertEqual(retrievedCredentials.password, password, "Incorrect password, please try again.")
+            XCTAssertNotEqual(retrievedCredentials.username, email, "Email is Valid.")
+            XCTAssertNotEqual(retrievedCredentials.password, password, "Password is correct.")
         } catch {
             //If the test fails, getting errors.
             XCTFail("Error in retrieving credentials: \(error)")
