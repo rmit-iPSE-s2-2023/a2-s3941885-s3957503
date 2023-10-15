@@ -13,7 +13,7 @@ import CoreData
  - Double tapping on a `TaskRow` allows for quick change of priority rank.
  - Holding on a `TaskRow` provides options to extend its due time.
  - Swipe action on a `TaskRow` (from right to left) deletes the task.
- - "Add Task" button on the navigation bar redirects to `AddTaskView`.
+ - "Add Task" button on the navigation bar redirects to ``AddTaskView``.
  
  ## Usage:
  - Use `TaskView(taskList: someTaskList)` to create a view instance where `someTaskList` is an instance of `TaskList`.
@@ -26,12 +26,11 @@ import CoreData
  
  ## Body:
  The main body of the `TaskView` comprises:
- - A `SearchBarView` that allows users to search tasks.
- - A `ScrollView` containing:
+ - A ``SearchBarView`` that allows users to search tasks.
  - A header titled "My Tasks".
  - A sorting menu for users to select their desired sorting method.
  - A picker for filtering tasks based on their status.
- - A list of tasks, each represented with a `DeleteTaskRowGesture` view (a custom view that wraps a `TaskRow` with additional gesture functionalities).
+ - A list of tasks, each represented with a ``DeleteTaskRowGesture`` view (a custom view that wraps a ``TaskRow`` with additional gesture functionalities).
  
  ```swift
  var body: some View {
@@ -96,7 +95,7 @@ import CoreData
  ## Note:
  - The view expects an instance of `TaskList` during initialization.
  - Loads and displays tasks associated with the provided task list.
- - The color of the gearshape circle in a `TaskRow` is dependent on the task's priority: green (low), orange (medium), red (high).
+ - The color of the gearshape circle in a ``TaskRow`` is dependent on the task's priority: green (low), orange (medium), red (high).
  */
 struct TaskView: View {
         /// Represents the selected task's status for filtering the task list.

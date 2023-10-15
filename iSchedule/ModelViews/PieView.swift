@@ -1,9 +1,9 @@
 import SwiftUI
 /**
- `PieView` is a custom SwiftUI view that displays a pie chart based on the provided slices. Each slice in the pie chart represents a segment with a specific value and color.
-
+ A view that displays a pie chart based on the provided slices. Each slice in the pie chart represents a segment with a specific value and color.
+ 
  The chart scales automatically to fit its container, preserving its aspect ratio. The pie chart's visual breakdown is determined by the relative values of the provided slices.
-
+ 
  ## Usage:
  To use this view, you need to provide an array of slices. For example:
  ```swift
@@ -49,6 +49,7 @@ import SwiftUI
  ## Note:
  This component was referenced from  "Build Pie Charts in SwiftUI" by Nazar Ilamanov, published in Better Programming.
  */
+
 //Reference: "Build Pie Charts in SwiftUI", Nazar Ilamanov, Published in Better Programming
 struct PieSlice: View {
     let startAngle: Angle
@@ -92,5 +93,6 @@ struct PieView: View {
         slices[..<idx].reduce(0) { $0 + $1.0 }
     }
 }
+
 
 

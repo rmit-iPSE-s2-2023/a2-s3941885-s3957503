@@ -1,11 +1,11 @@
 import SwiftUI
 import CoreData
 /**
- `ListSettingsView` provides an interface for users to edit and manage the settings of a specific `TaskList`. This view can be accessed by clicking on the gearshape symbol on the `ListView`.  It is meant to offer intuitive controls for adjusting common list properties, like its name and color.
+ `ListSettingsView` provides an interface for users to edit and manage the settings of a specific `TaskList`. This view can be accessed by clicking on the gearshape symbol on the ``ListView``.  It is meant to offer intuitive controls for adjusting common list properties, like its name and color.
  
  ## Overview:
   - **Purpose:** Enable users to customize the appearance and title of a `TaskList`.
-  - **Access:** The view can be invoked by tapping on the gearshape symbol from the `ListView`.
+  - **Access:** The view can be invoked by tapping on the gearshape symbol from the ``ListView``.
   - **Interactions:** Allows for text input to change the name, and color selection through a horizontal color palette.
   - **Save Mechanism:** Uses a "Save" button on the navigation bar to persist any changes made.
 

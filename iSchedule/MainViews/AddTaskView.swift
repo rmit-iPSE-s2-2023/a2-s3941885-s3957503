@@ -76,6 +76,7 @@ import UserNotifications
      }
      .navigationTitle(Text("Add Task"))
  }
+ ```
  
  ## Notes:
  - TaskList Instance: When initializing AddTaskView, you must provide an instance of TaskList. The new task will be linked to this provided task list upon saving.

@@ -5,9 +5,9 @@ import SwiftUI
  
  ## Overview:
  This  view orchestrates the overall navigation and presentation of the two main subviews, namely:
- - `ListView`: Displaying user's lists and detailed task information.
- - `StatisticView`: Showcasing various statistics related to the user's lists and tasks.
- The `MainTabView` employs a `CustomTabBar` consistently displayed at the bottom of the screen for navigation between the sections. Depending on the `selectedTab`, it dynamically changes the main content display between the `ListView` and `StatisticView`.
+ - ``ListView``: Displaying user's lists and detailed task information.
+ - ``StatisticView``: Showcasing various statistics related to the user's lists and tasks.
+ The `MainTabView` employs a ``CustomTabBar`` consistently displayed at the bottom of the screen for navigation between the sections. Depending on the `selectedTab`, it dynamically changes the main content display between the ``ListView`` and ``StatisticView``.
  
  ## Usage:
  Include the MainTabView as the initial view in the SwiftUI app, ensuring to provide the relevant Core Data context if required:
@@ -40,8 +40,8 @@ import SwiftUI
  
  ## Notes:
  Ensure that:
- - The `CustomTabBar`  is properly configured and accepts the required bindings.
- - The `ListView`  and `StatisticView` are independent and don't rely on the global state of MainTabView.
+ - The ``CustomTabBar``  is properly configured and accepts the required bindings.
+ - The ``ListView``  and ``StatisticView`` are independent and don't rely on the global state of MainTabView.
 */
 struct MainTabView: View {
     @State var selectedTab = "house.fill"

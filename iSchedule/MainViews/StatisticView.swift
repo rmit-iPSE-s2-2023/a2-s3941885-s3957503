@@ -21,12 +21,12 @@ import CoreData
  - A title indicating it represents the number of tasks in the selected list.
  - A dropdown menu allowing the user to filter tasks by list.
  - A visual representation of the number of tasks "In Progress" and "Completed".
- - A pie chart that visually represents the distribution of tasks by status.
+ - A ``PieView`` chart that visually represents the distribution of tasks by status.
  - The percentage of tasks that are completed.
  2. Total Task Amount Section: This section contains:
  - A title indicating it represents the total number of tasks.
  - A segmented control allowing the user to filter tasks by their status.
- - A donut chart that visually represents the distribution of tasks across various lists.
+ - A ``DonutView`` chart that visually represents the distribution of tasks across various lists.
  - A breakdown of each list, the number of tasks in that list, and the associated percentage with respect to the total task count.
  ```swift
  var body: some View {

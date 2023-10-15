@@ -5,10 +5,10 @@ import CoreData
  `ListView` displays a list of user-created tasks and provides functionalities like search, adding new lists, and deleting existing lists. It fetches the `TaskList` entities from Core Data.
 
  ## Overview:
- - **Search Bar:** The view integrates a `SearchBarView` to enable users to search and filter task lists based on their names. Filtering is real-time and adjusts as the user types.
- - **Task Lists:** All the task lists stored in Core Data are fetched and displayed in this view. Each list is represented using a `ListRow` view.
- - **Navigation:** The top navigation bar contains an "Add List" button to navigate users to a new view (`AddListView`) for creating a new task list.
- - **Swipe to Delete:** Each `ListRow` item supports a swipe-to-delete action, allowing users to quickly delete a task list.
+ - **Search Bar:** The view integrates a ``SearchBarView`` to enable users to search and filter task lists based on their names. Filtering is real-time and adjusts as the user types.
+ - **Task Lists:** All the task lists stored in Core Data are fetched and displayed in this view. Each list is represented using a ``ListRow`` view.
+ - **Navigation:** The top navigation bar contains an "Add List" button to navigate users to a new view (``AddListView``) for creating a new task list.
+ - **Swipe to Delete:** Each ``ListRow`` item supports a swipe-to-delete action, allowing users to quickly delete a task list.
  
  ## Usage:
  To integrate the `ListView` into a SwiftUI view, use:

@@ -1,6 +1,6 @@
 import SwiftUI
 /**
- `ListRow` is a SwiftUI view that encapsulates a single row in a task list, supporting swipe-to-delete functionality.
+ A view that encapsulates a single row in a task list, it is designed to hold the task or list details, it has a swipe-to-delete functionality.
 
  This view displays a single task list. When the user swipes left on the row, a delete button is revealed. Swiping past a certain threshold triggers an alert, allowing the user to confirm the deletion action.
 
