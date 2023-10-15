@@ -1,11 +1,11 @@
-**iShedule**
+# iSchedule
 
-**Authors**:
-Edward: s3957503
+## Authors:
+Edward Lim Padmajaya: s3957503
 
-Esmatullah: s3941885 
+Esmatullah Akhtary: s3941885 
 
-**Overview:**
+## Overview:
 iSchedule is an application that simplifies task management and scheduling. This project helps you organize your tasks, prioritize work, and boost productivity by providing a user-friendly interface to manage tasks efficiently.
 ## Features
 - **Task Management:** Create, update, and categorize tasks based on priority and status.
@@ -18,7 +18,9 @@ To get started with iSchedule, follow these steps:
 1. Install Xcode on your iMac, Macbook...
 2. Clone the repository:
    https://github.com/rmit-iPSE-s2-2023/a2-s3941885-s3957503.git
-3. Select iPhone 13 Pro IMax
+3. Select iPhone 14 Pro IMax
+4. Run the simulation
+5. App is ready to use.
 
 ## MiroBoard Link:
 https://miro.com/app/board/uXjVMltO4jA=/?share_link_id=921555363317
