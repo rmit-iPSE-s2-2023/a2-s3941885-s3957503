@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+import SwiftUI
+
 func fetchQuotes(quoteModel: QuoteModel) {
     if let url = URL(string: "https://zenquotes.io/api/random") {
         URLSession.shared.dataTask(with: url) { data, _, error in
