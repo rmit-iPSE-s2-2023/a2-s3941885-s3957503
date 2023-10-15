@@ -18,3 +18,5 @@ To get started with iSchedule, follow these steps:
 1. Install Xcode on your iMac, Macbook...
 2. Clone the repository:
    https://github.com/rmit-iPSE-s2-2023/a2-s3941885-s3957503.git
+3. Select iPhone 13 Pro IMax
+4. 
