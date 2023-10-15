@@ -1,6 +1,6 @@
-**iShedule**
+# iSchedule
 
-**Authors**:
+## Authors:
 Edward: s3957503
 
 Esmatullah: s3941885 
