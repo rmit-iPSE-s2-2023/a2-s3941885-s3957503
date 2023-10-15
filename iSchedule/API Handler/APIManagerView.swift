@@ -26,7 +26,7 @@ func fetchQuotes(quoteModel: QuoteModel) {
     }
 }
 
-struct Quote: Codable {
+struct Quote: Codable, Hashable {
     let q: String
     let a: String
 }

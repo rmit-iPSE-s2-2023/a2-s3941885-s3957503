@@ -118,6 +118,8 @@ A view presenting statistics on all lists tasks using pie charts, as well as hav
  */
 struct StatisticView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @ObservedObject var quoteModel = QuoteModel() // Create an instance of QuoteModel
+    
     
     // General state and fetch properties
     @State private var selectedFilter: TaskList? = nil
@@ -252,6 +254,7 @@ struct StatisticView: View {
     }
     
     var body: some View {
+        
         VStack {
             Text("Amount of tasks in the selected list")
                 .font(.title2)
@@ -351,7 +354,21 @@ struct StatisticView: View {
             .cornerRadius(10)
             .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
             
-            //Quote should be here
+                Section(header: Text("Motivational Quotes")) {
+                    VStack(alignment:.leading) {
+                        Text("")
+                        .onAppear {
+                            fetchQuotes(quoteModel: quoteModel) // Fetch data when the view appears
+                        }
+
+                        // Display quotes from quoteModel
+                        ForEach(quoteModel.quotes, id: \.self) { quote in
+                            Text("\"\(quote.q)\"")
+                            Text("Author: \(quote.a)")
+                        }
+                    }
+                    
+                }
             Spacer()
         }
         .navigationTitle("Statistics")
