@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-
-import SwiftUI
 /**
  `APIManager` is responsible for fetching motivational quotes from an API and decoding them into a format suitable for display in your app.
  
@@ -25,7 +23,7 @@ import SwiftUI
  let quoteModel = QuoteModel()
  fetchQuotes(quoteModel: quoteModel)
  let quotes = quoteModel.quotes
- 
+ ```
  
  ## Body:
  `APIManager` primarily consists of a function and a struct for fetching and managing motivational quotes from a remote API.

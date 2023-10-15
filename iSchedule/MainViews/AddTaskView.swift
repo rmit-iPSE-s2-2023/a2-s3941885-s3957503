@@ -182,7 +182,6 @@ struct AddTaskView: View {
         newTask.dueTime = selectTime
         newTask.priority = selectedPriority.rawValue
         newTask.taskDescription = description
-        newTask.dateCreated = Date()
         newTask.status = "In Progress"
         newTask.taskList = selectedList  // Link the new task to the pre-defined selected TaskList
         

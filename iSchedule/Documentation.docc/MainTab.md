@@ -20,7 +20,7 @@ struct iScheduleApp: App {
 ## Navigating with MainTab
 Through the MainTabView, users can navigate between two principal sections of the application: ``ListView`` and ``StatisticView``, enabled by the embedded ``CustomTabBar`` situated at the bottom of the screen.
 ![MainTabView](MainTab_1.png)
-//screenshot on statisticview with 0 tasks
+![MainTabView](Statistic_1.png)
 
 
 ## Creating and Managing Lists
@@ -37,4 +37,4 @@ After creating a list, by clicking on the selected list, you now can create new 
 ## Tracking Your Stats
 ``StatisticView`` delivers a visual representation and summary of all your lists and tasks, using pie charts and motivational quotes to keep you inspired and informed about your progress and workload.
 
-//screenshot on statisticview with tasks
+![MainTabView](Statistic_2.png)

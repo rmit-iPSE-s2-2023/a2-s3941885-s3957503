@@ -117,9 +117,9 @@
 		2B0273802AB84274007FB8B8 /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
-				2B0273762AB84253007FB8B8 /* TaskSettingsView.swift */,
 				2B0273782AB84254007FB8B8 /* ListView.swift */,
 				2B3B645C2AD12B02005AF956 /* MainTabView.swift */,
+				2B0273762AB84253007FB8B8 /* TaskSettingsView.swift */,
 				2B0273742AB84252007FB8B8 /* ListSettingsView.swift */,
 				2B0273792AB84254007FB8B8 /* TaskView.swift */,
 				2B0273772AB84253007FB8B8 /* AddTaskView.swift */,

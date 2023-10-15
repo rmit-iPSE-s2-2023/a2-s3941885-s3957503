@@ -8,6 +8,8 @@ iSchedule is a dedicated to-do list application designed to simplify and streaml
 
 ### Essentials
 - <doc:MainTab>
+- ``CoreDataManager``
+- ``APIManager``
 
 ### List UI
 - ``ListView``
@@ -34,3 +36,4 @@ iSchedule is a dedicated to-do list application designed to simplify and streaml
 - ``PieView``
 - ``CustomTabBar``
 - ``CheckboxToggleStyle``
+- ``NotificationManager``
