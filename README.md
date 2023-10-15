@@ -22,5 +22,9 @@ To get started with iSchedule, follow these steps:
 4. Run the simulation
 5. App is ready to use.
 
+## Documentation
+Select 'Product > Build Documentation' from the Xcode menu.
+
+
 ## MiroBoard Link:
 https://miro.com/app/board/uXjVMltO4jA=/?share_link_id=921555363317
