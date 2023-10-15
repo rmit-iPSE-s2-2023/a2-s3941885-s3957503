@@ -1,18 +1,24 @@
 import SwiftUI
 import CoreData
 /**
-A view designed for users to add a new `TaskList`entity to the CoreData database.
-
-Description:
-    - Input for the name of the list.
-    - Horizontal scroll view that presents different color options for the list.
-    - Selected color highlights the background of the input text field for visual confirmation.
-
-Upon saving, the new list's name and color are saved into the CoreData context.
-Note:
- - The color is saved as a string description in the CoreData model.
- - Therefore, when retrieving and using this color, appropriate conversion will be needed.
+ `AddListView` allows users to create a new TaskList entity to be saved into the CoreData database. It provides an interface for users to enter the name of the list and choose a color for the list.
  
+ ## Overview:
+ When the user navigates to this view, they can specify:
+ - Name of the list.
+ - Different color options for the list with a horizontal scroll view.
+ - Selected color highlights the background of the input text field for visual confirmation.
+ 
+ ## Usage:
+ To use AddListView, you can simply add it within a NavigationView for proper navigation:
+ ```swift
+ NavigationView {
+     AddListView()
+ }
+ ```
+ 
+ ## Body:
+ The view also includes a Save button in the navigation bar. When pressed, this button saves the entered list name and the selected color into the CoreData context.
  ```swift
  var body: some View {
      Form {
@@ -52,6 +58,16 @@ Note:
      })
      .navigationTitle("Add List")
  }
+ ```
+ 
+ ## Notes:
+ - Color Storage: Although SwiftUI uses the Color type for rendering, CoreData does not directly support storing this type. Instead, this view saves colors as string descriptions in the CoreData model. When retrieving and using this color in the future, an appropriate conversion from the string back to a Color will be necessary.
+
+ - Color Choices: The colors array defines available colors for list customization. These are: orange, red, yellow, green, blue, purple, gray, and pink.
+
+ - Saving the List: Upon pressing the Save button, the list name and the color string description are saved to a new TaskList entity in the CoreData context. If an error occurs during this save operation, it is printed to the console.
+
+ - Closing the View: After successfully saving the new list, the view is dismissed, returning the user to the previous screen.
  */
 struct AddListView: View {
     @Environment(\.managedObjectContext) private var viewContext

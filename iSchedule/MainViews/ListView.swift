@@ -2,29 +2,26 @@ import SwiftUI
 import CoreData
 
 /**
- `ListView` displays lists created by the user. It fetches the `TaskList` entities from Core Data.
+ `ListView` displays a list of user-created tasks and provides functionalities like search, adding new lists, and deleting existing lists. It fetches the `TaskList` entities from Core Data.
 
+ ## Overview:
+ - **Search Bar:** The view integrates a `SearchBarView` to enable users to search and filter task lists based on their names. Filtering is real-time and adjusts as the user types.
+ - **Task Lists:** All the task lists stored in Core Data are fetched and displayed in this view. Each list is represented using a `ListRow` view.
+ - **Navigation:** The top navigation bar contains an "Add List" button to navigate users to a new view (`AddListView`) for creating a new task list.
+ - **Swipe to Delete:** Each `ListRow` item supports a swipe-to-delete action, allowing users to quickly delete a task list.
+ 
  ## Usage:
+ To integrate the `ListView` into a SwiftUI view, use:
  ```swift
  ListView().environment(\.managedObjectContext, context)
  ```
  
- ## Features:
- - Search Bar: The view integrates SearchBarView to filter task lists based on their name. The lists are filtered in real-time as the user types in the search bar.
- - Navigation: The navigation bar has an "Add List" button on the trailing side, which, when tapped, will lead the user to the AddListView.
- - List Display: The main body of the view shows the fetched task lists. Each task list is represented using a ListRow view.
- - Swipe to Delete: Each ListRow supports swipe-to-delete functionality, allowing the user to swipe from right to left to reveal a delete action.
- 
- ## Properties:
- - `allLists`: A `FetchedResults` object that fetches all `TaskList` entities from Core Data, sorted by the name of the task list.
- - `searchText`: A `State` property that holds the string entered by the user in the search bar.
-
- ## Notes:
- - Ensure the Core Data entity for TaskList contains a property named name which represents the name of the task list.
- - The SearchBarView must be a custom view that supports text input for searching purposes.
- - The ListRow is assumed to be a custom view designed to represent and display each TaskList entity.
- - Always ensure that proper error handling is implemented when dealing with Core Data operations to prevent data loss or app crashes.
- 
+ ## Body:
+ The main view consists of:
+ - A `SearchBarView` at the top.
+ - A title "My Lists".
+ - A ForEach loop that displays each task list using the `ListRow` view.
+ - A navigation link (positioned in the top navigation bar) to the `AddListView`.
  ```swift
  var body: some View {
      VStack {
@@ -48,6 +45,10 @@ import CoreData
      .navigationBarItems(trailing: NavigationLink(destination: AddListView().environment(\.managedObjectContext, self.viewContext), label: { Text("Add List") }))
      .navigationTitle("Home")
  }
+ ```
+ 
+ ## Notes:
+ Ensure the Core Data entity for TaskList contains a property named name which represents the name of the task list.
  */
 
 struct ListView: View {

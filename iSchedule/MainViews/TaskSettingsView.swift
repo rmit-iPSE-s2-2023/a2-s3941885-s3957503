@@ -1,32 +1,20 @@
 import SwiftUI
 /**
- A view that provides an interface to edit details for a specific task.
+ `TaskSettingsView` is designed to edit the details of a specific `Task`. 
 
+ ## Overview:
  This view allows users to modify various attributes of a `Task`, such as its title, due date, time, priority, and notification options.
  After making changes, the view will save the task's updated details to Core Data. This view can be accessed by clicking on the gearshape symbol on the `TaskView`. To use this view, an instance of `Task` must be provided during initialization. The view will then load the task's current details and provide an interface for modifications.
- 
- Usage:
+
+ ## Usage:
+ To utilize the `TaskSettingsView`, provide an instance of `Task` during initialization. This view will then display the current details of the task, allowing the user to edit as necessary.
  ```swift
- TaskSettingsView(task: existingTaskEntity)
+ let task: Task = // Fetch or get your Task instance from Core Data
+ ListSettingsView(existingList: task)
  ```
  
- Properties:
-  - `task`: An `ObservedObject` of type `Task` representing the task entity to be edited.
-  - `taskName`: A `State` property that holds the title of the task.
-  - `description`: A `State` property that contains the description of the task.
-  - `selectDate`: A `State` property representing the due date of the task.
-  - `selectTime`: A `State` property indicating the due time for the task.
-  - `selectedPriority`: A `State` property representing the priority level of the task. Possible values are `.low`, `.medium`, and `.high`.
-  - `selectedAlertOption`: A `State` property indicating the selected notification alert timing option for the task.
-  - `alertOptionsList`: A constant list containing various alert timing options.
- 
- Notes:
- - Ensure that an instance of Task is available and passed as an argument when initializing TaskSettingsView.
- - The combinedDateTime computed property combines the selected date and time into a single Date object.
- - The TaskPriority enumeration should define cases for .low, .medium, and .high for priority selection.
- - Ensure the Core Data entity for Task contains properties for title, taskDescription, dueDate, dueTime, priority, and alertOption.
- - The viewContext from the @Environment property wrapper is used to save changes to Core Data.
- 
+ ## Body:
+ The view is built using a `Form`, with different sections for task details, notification options, and task description. Each section contains appropriate input fields. The `navigationBarItems` contains a "Save" button to update the task details in Core Data.
  ```swift
  var body: some View {
      Form {
@@ -87,13 +75,19 @@ import SwiftUI
      }, label: { Text("Save") }))
      .navigationTitle(Text("Edit Task"))
  }
+ ```
+ ## Notes:
+ - Ensure that an instance of Task is available and passed as an argument when initializing TaskSettingsView.
+ - The combinedDateTime computed property combines the selected date and time into a single Date object.
+ - The TaskPriority enumeration should define cases for .low, .medium, and .high for priority selection.
+ - Ensure the Core Data entity for Task contains properties for title, taskDescription, dueDate, dueTime, priority, and alertOption.
+ - The viewContext from the @Environment property wrapper is used to save changes to Core Data.
  */
 struct TaskSettingsView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) var presentationMode
     
     @ObservedObject var task: Task
-    
     @State private var taskName: String
     @State private var description: String
     @State private var selectDate = Date()

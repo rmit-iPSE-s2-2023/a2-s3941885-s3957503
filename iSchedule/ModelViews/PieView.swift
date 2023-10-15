@@ -4,19 +4,13 @@ import SwiftUI
 
  The chart scales automatically to fit its container, preserving its aspect ratio. The pie chart's visual breakdown is determined by the relative values of the provided slices.
 
- Usage:
+ ## Usage:
  To use this view, you need to provide an array of slices. For example:
  ```swift
  PieView(slices: [(0.4, .red), (0.3, .blue), (0.3, .yellow)])
  ```
- 
- Properties:
- - `slices`: An array of tuples. Each tuple contains a double value representing the segment's size relative to the total and a color for that segment.
 
- Note:
- This component was referenced from  "Build Pie Charts in SwiftUI" by Nazar Ilamanov, published in Better Programming.
- 
- ```
+ ```swift
  struct PieSlice: View {
      let startAngle: Angle
      let endAngle: Angle
@@ -51,6 +45,9 @@ import SwiftUI
          .aspectRatio(1, contentMode: .fit)
      }
  }
+ ```
+ ## Note:
+ This component was referenced from  "Build Pie Charts in SwiftUI" by Nazar Ilamanov, published in Better Programming.
  */
 //Reference: "Build Pie Charts in SwiftUI", Nazar Ilamanov, Published in Better Programming
 struct PieSlice: View {

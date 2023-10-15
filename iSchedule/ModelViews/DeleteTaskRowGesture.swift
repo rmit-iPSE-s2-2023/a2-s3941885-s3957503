@@ -2,25 +2,20 @@ import SwiftUI
 /**
  A view that provides an interactive swipe-to-delete gesture for tasks. When a user swipes a task row to the left, a red delete button (trash icon) is revealed. If the swipe is significant enough, a confirmation alert is presented to ensure the user really wants to delete the task.
  
- Usage:
+ ##Usage:
  To use this view, you need to initialize it with a task and a deletion closure. For instance:
  ```swift
  DeleteTaskRowGesture(task: someTask) {
      // Handle the task deletion here
  }
 ```
- Features:
+ 
+ ## Features:
  - Swipe to reveal a delete button.
  - Springy animation while swiping.
  - Presents a confirmation alert upon a sufficient swipe to avoid accidental deletions.
  - Calls a provided deletion action if the user confirms the deletion.
 
- Properties:
- - `task`: The task that the row represents.
- - `onDelete`: A closure that is called when the user confirms the deletion of the task. This should handle the deletion logic.
- 
- Note:
- It's essential to handle the actual deletion logic within the onDelete closure to maintain data consistency and provide immediate feedback to the user.
  ```swift
  struct DeleteTaskRowGesture: View {
      var task: Task
@@ -79,6 +74,9 @@ import SwiftUI
          }
      }
  }
+ ```
+ # Note:
+ It's essential to handle the actual deletion logic within the onDelete closure to maintain data consistency and provide immediate feedback to the user.
  */
 struct DeleteTaskRowGesture: View {
     var task: Task
