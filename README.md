@@ -19,4 +19,6 @@ To get started with iSchedule, follow these steps:
 2. Clone the repository:
    https://github.com/rmit-iPSE-s2-2023/a2-s3941885-s3957503.git
 3. Select iPhone 13 Pro IMax
-4. 
+
+## MiroBoard Link:
+https://miro.com/app/board/uXjVMltO4jA=/?share_link_id=921555363317
