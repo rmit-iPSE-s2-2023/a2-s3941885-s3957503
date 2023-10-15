@@ -2,10 +2,9 @@
 
 ## Authors:
 Edward: s3957503
-
 Esmatullah: s3941885 
 
-**Overview:**
+## Overview:
 iSchedule is an application that simplifies task management and scheduling. This project helps you organize your tasks, prioritize work, and boost productivity by providing a user-friendly interface to manage tasks efficiently.
 ## Features
 - **Task Management:** Create, update, and categorize tasks based on priority and status.
