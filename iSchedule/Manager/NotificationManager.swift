@@ -5,8 +5,39 @@
 //  Created by Esmatullah Akhtari on 4/10/2023.
 //
 
+
+
 import Foundation
 import UserNotifications
+
+
+ /**
+  `NotificationManager` is responsible for scheduling task reminder notifications in the app.
+  
+  ## Overview:
+  `NotificationManager` provides a set of functions to schedule local notifications for upcoming tasks. It uses the UserNotifications framework to set up and deliver reminders to the user.
+  
+  ## Usage:
+  To use the `NotificationManager` in your SwiftUI view, follow these steps:
+  1. Call the `scheduleAlert(taskName:selectedDate:selectedTime:selectedAlertOption:)` function with the required parameters to schedule a notification.
+  
+  Here's an example of how to use it:
+  ```swift
+  let taskName = "Assignment 02"
+  let selectedDate = Date() // The date when the task is scheduled
+  let selectedTime = Date() // The time when the task is scheduled
+  let selectedAlertOption = "5 Minutes Before" // Choose from available options
+  NotificationManager.scheduleAlert(taskName: taskName, selectedDate: selectedDate, selectedTime: selectedTime, selectedAlertOption: selectedAlertOption)
+  ```
+  ##Body:
+  `NotificationManager` primarily consists of a set of two functions for scheduling task reminder notifications.
+  
+  ##Function:
+  `scheduleAlert(taskName:selectedDate:selectedTime:selectedAlertOption:)`:
+  This function schedules a local notification for an upcoming task. It takes the task name, the date, the time, and the alert option as parameters to set up the notification. The alert option allows you to customize when the notification should be delivered, such as 5 minutes before, 15 minutes before, etc.
+  `requestingNotification(date: Date, content: UNMutableNotificationContent)`:
+  This function is responsible for requesting a local notification. It takes a date and context of the notification as parameter for requesting a notification.
+ **/
 
 class NotficationManager{
     
